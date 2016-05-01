@@ -1,1 +1,17 @@
-<p>This is the about view.</p>
+
+<div class="page-header"><h1>Orders</h1></div>
+<table class="table">
+  <thead>
+  <tr>
+    <td>Product</td>
+    <td>Total</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr  ng-repeat="order in orders">
+    <td>{{ order.product }}</td>
+    <td>{{ order.total | currency }}</td>
+  </tr>
+  </tbody>
+</table>
+
