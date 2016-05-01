@@ -108,14 +108,14 @@
         ]
       }
     ];
-
+/*
     $scope.doSort = function(propName){
       $scope.sortBy = propName;
       $scope.reverse = !$scope.reverse;
-    };
+    };*/
   };
 
-  MainCtrl.$inject = ['$scope'];
+  //MainCtrl.$inject = ['$scope'];
 
   angular.module('customerAppApp').controller('MainCtrl', MainCtrl);
 })();
