@@ -7,8 +7,8 @@
  * # MainCtrl
  * Controller of the customerAppApp
  */
-(function(){
-  var MainCtrl = function($scope){
+(function () {
+  var MainCtrl = function ($scope) {
     $scope.sortBy = 'name';
     $scope.reverse = false;
 
@@ -19,7 +19,7 @@
         city: 'Seattle',
         orderTotal: 101.50,
         joined: '1995-03-03',
-        orders:[
+        orders: [
           {
             id: 5,
             product: 'Baseball Hat',
@@ -38,7 +38,7 @@
         city: 'Chandler',
         orderTotal: 9.997,
         joined: '2000-12-02',
-        orders:[
+        orders: [
           {
             id: 1,
             product: 'Shoes',
@@ -52,7 +52,7 @@
         city: 'Las Vegas',
         orderTotal: 19.999,
         joined: '1965-01-10',
-        orders:[
+        orders: [
           {
             id: 2,
             product: 'Baseball',
@@ -71,7 +71,7 @@
         city: 'New York',
         orderTotal: 44.896,
         joined: '1944-06-09',
-        orders:[
+        orders: [
           {
             id: 4,
             product: 'watch',
@@ -85,7 +85,7 @@
         city: 'California',
         orderTotal: 44.896,
         joined: '2019-12-10',
-        orders:[
+        orders: [
           {
             id: 4,
             product: 'watch',
@@ -99,7 +99,7 @@
         city: 'Ohio',
         orderTotal: 44.896,
         joined: '2015-02-059',
-        orders:[
+        orders: [
           {
             id: 4,
             product: 'watch',
@@ -108,16 +108,67 @@
         ]
       }
     ];
-/*
-    $scope.doSort = function(propName){
-      $scope.sortBy = propName;
-      $scope.reverse = !$scope.reverse;
-    };*/
+    /*
+     $scope.doSort = function(propName){
+     $scope.sortBy = propName;
+     $scope.reverse = !$scope.reverse;
+     };*/
   };
 
   //MainCtrl.$inject = ['$scope'];
 
   angular.module('customerAppApp').controller('MainCtrl', MainCtrl);
-})();
+})()
+angular.module('customerAppApp')
+  .controller('mainCtrl',[function () {
+    var self = this;
+    self.tab = 'first';
+    self.open = function (tab) {
+      self.tab = tab;
+    };
+  }])
+  .controller('SubCtrl',['ItemService',
+  function (ItemService) {
+    var self = this;
+    self.list = function () {
+      return ItemService.list();
+    };
+    self.add = function () {
+      ItemService.add({
+        id:self.list().length + 1,
+        label: 'Item ' + self.list().length
+      });
+    };
+    self.remove = function () {
+      ItemService.remove({
+        id:self.list().length - 1,
+        label: 'Item ' + self.list().length
+      });
+    };
+  }])
+.factory('ItemService',[function () {
+  var items = [
+    {
+      id: 1,
+      label: 'Item 0'
+    },
+    {
+      id: 2,
+      label: 'Item 1'
+    }
+  ];
+  return{
+    list: function(){
+      return items;
+    },
+    add: function (item) {
+      items.push(item);
+    },
+    remove: function (item) {
+      items.pop(item);
+    }
+  };
+}]);
+
 
 
