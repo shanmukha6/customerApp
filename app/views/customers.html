@@ -22,15 +22,16 @@
         <td>{{ cust.city }}</td>
         <td>{{ cust.orderTotal | currency }}</td>
         <td>{{ cust.joined }}</td>
-        <td><a href="#/about/{{ cust.id }}" class="btn btn-info">Add</a></td>
+        <td><a href="#/orders/{{ cust.id }}" class="btn btn-info">Add</a></td>
       </tr>
       </tbody>
     </table>
-    <p><span>Total Customers: {{ customers.length }}</span></p>
+    <p><span>Total Customers: <span class="badge">{{ customers.length }}</span></span></p>
   </div>
+
 </div>
-<hr/>
-<div ng-controller="mainCtrl as mainCtrl">
+
+<!--<div ng-controller="mainCtrl as mainCtrl">
   <div class="btn btn-success" ng-click="mainCtrl.open('first')">First Tab</button></div>
   <div class="btn btn-success pull-right"  ng-click="mainCtrl.open('second')">Second Tab</button></div>
   <div ng-switch on="mainCtrl.tab">
@@ -62,7 +63,7 @@
     <div ng-switch-when="second">
       <div ng-controller="SubCtrl as ctrl">
         <h3>This is Second Tab</h3>
-       <!-- <table class="table">
+       &lt;!&ndash; <table class="table">
           <thead>
           <tr>
             <td>Item Id</td>
@@ -75,7 +76,7 @@
             <td ng-bind="item.label"></td>
           </tr>
           </tbody>
-        </table>-->
+        </table>&ndash;&gt;
         <ul>
           <li ng-repeat="item in ctrl.list()">
             <span ng-bind="item.label"></span>
@@ -91,4 +92,4 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
