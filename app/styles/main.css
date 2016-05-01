@@ -16,6 +16,14 @@ body {
 .header {
   border-bottom: 1px solid #e5e5e5;
 }
+.caret{border-top:4px solid cornflowerblue;}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: cornflowerblue;
+}
+thead{
+  font-size: larger;
+  color: cornflowerblue;
+}
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
@@ -77,3 +85,4 @@ body {
     border-bottom: 0;
   }
 }
+

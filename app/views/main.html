@@ -2,15 +2,15 @@
 <div class="panel-heading"><h1>Customers</h1></div>
 <div class="panel-body">
   <div class="pull-right"> Search by Name:
-    <input type="text"ng-model="customerFilter.name"placeholder=" Enter Name ">
+    <input class="typeahead" type="text"ng-model="customerFilter.name"placeholder=" Enter Name ">
   </div><br/><hr/>
   <table class="table table-hover">
     <thead>
     <tr>
-      <td ng-click="sortBy = 'name';reverse=!reverse">Name <span class="caret red"></span></td>
-      <td ng-click="sortBy = 'city';reverse=!reverse">City <span class="caret red"></span></td>
-      <td ng-click="sortBy = 'orderTotal';reverse=!reverse">Order Total <span class="caret red"></span></td>
-      <td ng-click="sortBy = 'joined';reverse=!reverse">Joined <span class="caret red"></span></td>
+      <td ng-click="sortBy = 'name';reverse=!reverse"><b>Name</b> <span class="caret red"></span></td>
+      <td ng-click="sortBy = 'city';reverse=!reverse"><b>City</b> <span class="caret red"></span></td>
+      <td ng-click="sortBy = 'orderTotal';reverse=!reverse"><b>Order Total</b> <span class="caret red"></span></td>
+      <td ng-click="sortBy = 'joined';reverse=!reverse"><b>Joined</b> <span class="caret red"></span></td>
       <td>&nbsp;</td>
     </tr>
     </thead>
