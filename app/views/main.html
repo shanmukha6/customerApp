@@ -4,7 +4,7 @@
   <div class="pull-right"> Search by Name:
     <input class="typeahead" type="text"ng-model="customerFilter.name"placeholder=" Enter Name ">
   </div><br/><hr/>
-  <table class="table table-hover">
+  <table class="table table-responsive">
     <thead>
     <tr>
       <td ng-click="sortBy = 'name';reverse=!reverse"><b>Name</b> <span class="caret red"></span></td>
@@ -18,7 +18,7 @@
     <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
       <td>{{ cust.name }}</td>
       <td>{{ cust.city }}</td>
-      <td>{{ cust.orderTotal }}</td>
+      <td>{{ cust.orderTotal | currency }}</td>
       <td>{{ cust.joined }}</td>
       <td><a href="#/about/{{ cust.id }}"class="btn btn-info">Add</a> </td>
     </tr>

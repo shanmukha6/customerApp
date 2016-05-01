@@ -17,7 +17,7 @@ body {
   border-bottom: 1px solid #e5e5e5;
 }
 .caret{border-top:4px solid cornflowerblue;}
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+.table-responsive tbody tr:hover td, .table-responsive tbody tr:hover th {
   background-color: cornflowerblue;
 }
 thead{
