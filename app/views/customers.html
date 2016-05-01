@@ -1,11 +1,16 @@
 <div ng-controller="MainCtrl as ctrl">
   <div class="panel-heading"><h1>Customers</h1></div>
   <div class="panel-body">
-    <div class="pull-right">Search by Name:
-      <input class="typeahead" type="text" ng-model="customerFilter.name" placeholder=" Enter Name ">
+    <div class="pull-right">
+      <form role="form">
+        <div class="form-group has-feedback">
+          <label class="control-label">Enter Name</label>
+          <input type="text" ng-model="customerFilter.name" class="form-control" placeholder="Search" type-head/>
+          <i class="form-control-feedback glyphicon glyphicon-search"></i>
+        </div>
+      </form>
     </div>
-    <br/>
-    <hr/>
+    <hr style="clear: both"/>
     <table class="table table-responsive">
       <thead>
       <tr>
@@ -17,11 +22,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
-        <td>{{ cust.name }}</td>
-        <td>{{ cust.city }}</td>
-        <td>{{ cust.orderTotal | currency }}</td>
-        <td>{{ cust.joined }}</td>
+      <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse"  >
+        <td ng-bind="cust.name"></td>
+        <td ng-bind="cust.city"></td>
+        <td ng-bind="cust.orderTotal | currency "></td>
+        <td ng-bind="cust.joined"></td>
         <td><a href="#/orders/{{ cust.id }}" class="btn btn-info">Add</a></td>
       </tr>
       </tbody>
