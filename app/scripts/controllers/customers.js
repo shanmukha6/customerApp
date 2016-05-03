@@ -119,7 +119,7 @@
 
 
   angular.module('customerAppApp').controller('MainCtrl', MainCtrl);
-})()
+})();
 
 
 
