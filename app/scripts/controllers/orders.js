@@ -20,7 +20,7 @@
         }
       }
     }
-
+//console.log(customerId);
     $scope.customers = [
       {
         id: 4,
@@ -51,6 +51,16 @@
           {
             id: 1,
             product: 'Shoes',
+            total: 19.9956
+          },
+          {
+            id: 2,
+            product: 'Playing Kit',
+            total: 29.9956
+          },
+          {
+            id: 3,
+            product: 'Video Games',
             total: 9.9956
           }
         ]
@@ -121,7 +131,7 @@
     init();
   };
 
-  AboutCtrl.$inject = ['$scope', '$routeParams'];
+  //AboutCtrl.$inject = ['$scope', '$routeParams'];
 
 
   angular.module('customerAppApp')

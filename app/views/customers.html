@@ -1,8 +1,20 @@
 <div ng-controller="MainCtrl as ctrl">
     <div class="header">
-        <h3 class="text-muted">Customers Application</h3>
+        <h3 class="text-muted">Customers Application </h3>
     </div>
-    <div class="panel-heading"><h1>Customers</h1>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel-heading"><h1>Customers<a href="" ng-model="collapsed" ng-click="collapsed=!collapsed"
+                                                       class="pull-right">
+                <!--<i class="fa fa-angle-down" style="font-size:35px;color:#2685ee"></i>-->
+                <i class="fa fa-angle-down fa-2x fa-spin"style="font-size:35px;color:#2685ee"></i>
+            </a></h1></div>
+        </div>
+        <div class="col-sm-3">
+            <div></div>
+        </div>
+    </div>
+    <div ng-show="!collapsed">
        <span class="pull-right">
             <div class="form-group has-feedback">
                 <label class="control-label">Enter Name</label>
@@ -10,33 +22,35 @@
                 <i class="form-control-feedback glyphicon glyphicon-search"></i>
             </div>
         </span>
-    </div>
-    <!--<hr style="clear: both"/>-->
-    <div class="panel-body">
-        <table class="table table-responsive">
-            <thead>
-            <tr>
-                <td ng-click="sortBy = 'name';reverse=!reverse"><b>Name</b> <span class="caret red"></span></td>
-                <td ng-click="sortBy = 'city';reverse=!reverse"><b>City</b> <span class="caret red"></span></td>
-                <td ng-click="sortBy = 'orderTotal';reverse=!reverse"><b>Order Total</b> <span class="caret red"></span>
-                </td>
-                <td ng-click="sortBy = 'joined';reverse=!reverse"><b>Joined</b> <span class="caret red"></span></td>
-                <td>Action</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
-                <td ng-bind="cust.name"></td>
-                <td ng-bind="cust.city"></td>
-                <td ng-bind="cust.orderTotal | currency "></td>
-                <td ng-bind="cust.joined"></td>
-                <td><a href="#/orders/{{ cust.id }}" class="btn btn-info">Add</a></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <p><span>Total Customers: <span class="badge">{{ customers.length }}</span></span></p>
 
+        <!--<hr style="clear: both"/>-->
+        <div class="panel-body">
+            <table class="table table-responsive">
+                <thead>
+                <tr>
+                    <td ng-click="sortBy = 'name';reverse=!reverse"><b>Name</b> <span class="caret red"></span></td>
+                    <td ng-click="sortBy = 'city';reverse=!reverse"><b>City</b> <span class="caret red"></span></td>
+                    <td ng-click="sortBy = 'orderTotal';reverse=!reverse"><b>Order Total</b> <span
+                            class="caret red"></span>
+                    </td>
+                    <td ng-click="sortBy = 'joined';reverse=!reverse"><b>Joined</b> <span class="caret red"></span></td>
+                    <td><b>Action</b></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
+                    <td ng-bind="cust.name"></td>
+                    <td ng-bind="cust.city"></td>
+                    <td ng-bind="cust.orderTotal | currency "></td>
+                    <td ng-bind="cust.joined"></td>
+                    <td><a href="#/orders/{{ cust.id }}" class="btn btn-info">Add</a></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p><span>Total Customers: <span class="badge">{{ customers.length }}</span></span></p>
+        </div>
+    </div>
     <div class="footer">
         <nav>
             <ul class="pager">
@@ -47,6 +61,7 @@
     </div>
 
 </div>
+
 
 <!--<div ng-controller="mainCtrl as mainCtrl">
   <div class="btn btn-success" ng-click="mainCtrl.open('first')">First Tab</button></div>

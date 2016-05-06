@@ -16,13 +16,18 @@ body {
 .header {
   border-bottom: 1px solid #e5e5e5;
 }
-.caret{border-top:4px solid cornflowerblue;}
+.caret{border-top:4px solid #2685ee;}
 .table-responsive tbody tr:hover td, .table-responsive tbody tr:hover th {
-  background-color: cornflowerblue;
+  background-color: #2685ee;
 }
+/*#caret {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid green;
+}*/
 thead{
   font-size: larger;
-  color: cornflowerblue;
+  color: #2685ee;
 }
 /*h3 {
   text-align: center;
