@@ -1,4 +1,7 @@
 <div ng-controller="MainCtrl as ctrl">
+    <div class="header">
+        <h3 class="text-muted">Customers Application</h3>
+    </div>
     <div class="panel-heading"><h1>Customers</h1>
        <span class="pull-right">
             <div class="form-group has-feedback">
@@ -31,7 +34,16 @@
             </tr>
             </tbody>
         </table>
-        <p><span>Total Customers: <span class="badge">{{ customers.length }}</span></span></p>
+    </div>
+    <p><span>Total Customers: <span class="badge">{{ customers.length }}</span></span></p>
+
+    <div class="footer">
+        <nav>
+            <ul class="pager">
+                <!--<li class="pull-left"><a ng-href="#/customers">Customers</a></li>-->
+                <li class="next"><a href="#/itemlist">Item List</a></li>
+            </ul>
+        </nav>
     </div>
 
 </div>
