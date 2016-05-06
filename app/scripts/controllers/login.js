@@ -13,7 +13,8 @@ angular.module('customerAppApp')
             var username = $scope.username;
             var password = $scope.password;
             if ($scope.username === 'admin' && $scope.password === 'shanmukha') {
-                $location.path('/customers');
+                window.location.hash = '#/customers';
+               /* $location.path('/customers');*/
             }
             else {
                 alert("Wrong stuff");
