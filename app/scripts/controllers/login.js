@@ -8,13 +8,16 @@
  * Controller of the customerAppApp
  */
 angular.module('customerAppApp')
-    .controller('LoginCtrl', function ($scope, $location) {
+    .controller('LoginCtrl', function ($scope, $location, $rootScope) {
         $scope.submit = function () {
-            var username = $scope.username;
-            var password = $scope.password;
+           /* var username = $scope.username;
+            var password = $scope.password;*/
+          /*$rootScope.username = $scope.username;
+          $rootScope.password = $scope.password;*/
             if ($scope.username === 'admin' && $scope.password === 'shanmukha') {
-                window.location.hash = '#/customers';
-               /* $location.path('/customers');*/
+              $rootScope.loggedIn = true;
+              /*window.location.hash = '#/customers';*/
+                $location.path('/customers');
             }
             else {
                 alert("Wrong stuff");

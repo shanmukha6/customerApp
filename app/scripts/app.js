@@ -24,6 +24,13 @@ angular
                 controller: 'LoginCtrl'
             })
             .when('/customers', {
+              resolve:{
+                "check":function ($location, $rootScope) {
+                  if(!$rootScope.loggedIn){
+                    $location.path('/');
+                  }
+                }
+              },
                 templateUrl: 'views/customers.html',
                 controller: 'MainCtrl'
             })
@@ -32,6 +39,13 @@ angular
                 controller: 'AboutCtrl'
             })
             .when('/itemlist', {
+              resolve:{
+                "check":function ($location, $rootScope) {
+                  if(!$rootScope.loggedIn){
+                    $location.path('/');
+                  }
+                }
+              },
                 templateUrl: 'views/itemlist.html',
                 controller: 'mainCtrl'
             })
