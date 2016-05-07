@@ -86,7 +86,7 @@ angular.module('customerAppApp')
 /*
 angular.module('customerAppApp')
   .controller('mainCtrl',[function () {
-    var self = this;
+    var self = this;service 
     self.tab = 'first';
     self.open = function (tab) {
       self.tab = tab;
