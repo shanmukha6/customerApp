@@ -68,7 +68,7 @@
       {
         id: 2,
         name: 'Zed',
-        city: 'Las Vegas',
+        city: 'Los Vegas',
         orderTotal: 19.999,
         joined: '1965-01-10',
         orders: [
