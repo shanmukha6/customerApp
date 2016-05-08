@@ -43,6 +43,11 @@
             id: 1,
             product: 'Shoes',
             total: 9.9956
+          },
+          {
+            id: 2,
+            product: 'Key board',
+            total: 19.9956
           }
         ]
       },
@@ -76,6 +81,11 @@
             id: 4,
             product: 'watch',
             total: 44.896
+          },
+          {
+            id: 5,
+            product: 'joy stick',
+            total: 14.896
           }
         ]
       },
@@ -90,6 +100,11 @@
             id: 4,
             product: 'watch',
             total: 44.896
+          },
+          {
+            id: 5,
+            product: 'Camera',
+            total: 414.896
           }
         ]
       },
@@ -98,12 +113,17 @@
         name: 'Smith',
         city: 'Ohio',
         orderTotal: 44.896,
-        joined: '2015-02-059',
+        joined: '2015-02-05',
         orders: [
           {
             id: 4,
             product: 'watch',
             total: 44.896
+          },
+          {
+            id: 5,
+            product: 'iPhone',
+            total: 744.896
           }
         ]
       }
@@ -117,19 +137,18 @@
 
   //MainCtrl.$inject = ['$scope'];
 
-
   angular.module('customerAppApp').controller('MainCtrl', MainCtrl)
-  .controller("firstCtrl",function($scope){
-    $scope.$on('eventName',function(event,args){
-      $scope.message = args.message;
-      console.log($scope.message);
+    .controller("firstCtrl", function ($scope) {
+      $scope.$on('eventName', function (event, args) {
+        $scope.message = args.message;
+        console.log($scope.message);
+      });
+    })
+    .controller('secondCtrl', function ($scope) {
+      $scope.handleClick = function (msg) {
+        $scope.$emit('eventName', {message: msg});
+      };
     });
-  })
-  .controller('secondCtrl',function ($scope) {
-    $scope.handleClick = function (msg) {
-      $scope.$emit('eventName',{ message: msg });
-    };
-  });
 })();
 
 

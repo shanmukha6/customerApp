@@ -95,6 +95,16 @@
             id: 4,
             product: 'watch',
             total: 44.896
+          },
+          {
+            id: 5,
+            product: 'joy stick',
+            total: 14.896
+          },
+          {
+            id: 6,
+            product: 'ATM',
+            total: 15894.896
           }
         ]
       },
@@ -109,6 +119,11 @@
             id: 4,
             product: 'watch',
             total: 44.896
+          },
+          {
+            id: 5,
+            product: 'Camera',
+            total: 414.896
           }
         ]
       },
@@ -123,6 +138,11 @@
             id: 4,
             product: 'watch',
             total: 44.896
+          },
+          {
+            id: 5,
+            product: 'joy stick',
+            total: 14.896
           }
         ]
       }
