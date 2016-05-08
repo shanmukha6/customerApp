@@ -73,7 +73,40 @@
    </div>
   </div>
 
-  <!--  <div ng-controller="companiesCtrl">
+  <div ng-controller="companiesCtrl">
+    <div class="panel-body">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <td ng-click="sortBy = 'name';reverse=!reverse" style="cursor: pointer;"><b>Label</b> <span
+            class="caret red"></span></td>
+          <td ng-click="sortBy = 'city';reverse=!reverse" style="cursor: pointer;"><b>Name</b> <span
+            class="caret red"></span></td>
+          <td ng-click="sortBy = 'orderTotal';reverse=!reverse" style="cursor: pointer;"><b>Symbol</b> <span
+            class="caret red"></span>
+          </td>
+          <td ng-click="sortBy = 'joined';reverse=!reverse" style="cursor: pointer;"><b>sector</b> <span
+            class="caret red"></span></td>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="company in companies | filter:customerFilter | orderBy:sortBy:reverse">
+          <td ng-bind="company.label"></td>
+          <td ng-bind="company.name"></td>
+          <td ng-bind="company.symbol"></td>
+          <td ng-bind="company.sector"></td>
+          <!-- <td><a href="#/orders/{{ cust.id }}" class="btn btn-info">Add</a></td>-->
+
+        </tr>
+        </tbody>
+      </table>
+
+      <p><span>Total Customers: <span class="badge">{{ companies.length }}</span></span></p>
+    </div>
+  </div>
+
+    <!--<div ng-controller="companiesCtrl">
       <ul>
         <h2>Names and Age</h2>
         <li ng-repeat="company in companies">

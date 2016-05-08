@@ -50,10 +50,6 @@ angular
         templateUrl: 'views/itemlist.html',
         controller: 'mainCtrl'
       })
-      .when('/companies', {
-        templateUrl: 'companies.json'
-
-      })
       .otherwise({
         redirectTo: '/'
       });
