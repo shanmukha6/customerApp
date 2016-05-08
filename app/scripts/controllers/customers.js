@@ -118,7 +118,18 @@
   //MainCtrl.$inject = ['$scope'];
 
 
-  angular.module('customerAppApp').controller('MainCtrl', MainCtrl);
+  angular.module('customerAppApp').controller('MainCtrl', MainCtrl)
+  .controller("firstCtrl",function($scope){
+    $scope.$on('eventName',function(event,args){
+      $scope.message = args.message;
+      console.log($scope.message);
+    });
+  })
+  .controller('secondCtrl',function ($scope) {
+    $scope.handleClick = function (msg) {
+      $scope.$emit('eventName',{ message: msg });
+    };
+  });
 })();
 
 
