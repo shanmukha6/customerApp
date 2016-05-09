@@ -58,7 +58,13 @@
       "sector": "n/a",
       "industry": "n/a"
     },
-
+    {
+      "label": "MRH - Montpelier Re Holdings Ltd.",
+      "name": "Montpelier Re Holdings Ltd.",
+      "symbol": "MRH",
+      "sector": "Finance",
+      "industry": "Property-Casualty Insurers"
+    },
     {
       "label": "TLR - Timberline Resources Corporation",
       "name": "Timberline Resources Corporation",
