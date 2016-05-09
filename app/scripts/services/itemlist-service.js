@@ -71,7 +71,7 @@ angular.module('customerAppApp')
       self.add = function () {
         ItemService.add({
           id: self.list().length + 1,
-          label: 'Item' + self.list().length
+          label: 'Item ' + self.list().length
         });
       };
       self.remove = function () {
@@ -86,7 +86,7 @@ angular.module('customerAppApp')
 /*
 angular.module('customerAppApp')
   .controller('mainCtrl',[function () {
-    var self = this;service 
+    var self = this;service
     self.tab = 'first';
     self.open = function (tab) {
       self.tab = tab;
