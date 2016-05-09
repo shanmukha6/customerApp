@@ -2,19 +2,14 @@
   <div class="header">
     <h3 class="text-muted">Customers Application </h3>
   </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="panel-heading"><h1>Customers<a href="" ng-model="collapsed" ng-click="collapsed=!collapsed"
-                                                 class="pull-right">
-        <!--<i class="fa fa-angle-down" style="font-size:35px;color:#2685ee"></i>-->
-        <i class="fa fa-angle-down fa-2x fa-spin" style="font-size:35px;color:#2685ee"></i>
-      </a></h1></div>
-    </div>
-    <div class="col-sm-3">
-      <div></div>
-    </div>
-  </div>
-  <div ng-show="!collapsed">
+  <div class="panel">
+    <div class="panel-heading"><h1>Customers<a href="" ng-model="collapsed" ng-click="collapsed=!collapsed"
+                                               class="pull-right">
+      <!--<i class="fa fa-angle-down" style="font-size:35px;color:#2685ee"></i>-->
+      <i class="fa fa-angle-down " style="font-size:35px;color:#2685ee"></i>
+    </a></h1></div>
+    <div ng-show="!collapsed">
+
        <span class="pull-right">
             <div class="form-group has-feedback">
                 <label class="control-label">Enter Name</label>
@@ -23,259 +18,260 @@
             </div>
         </span>
 
-    <!--<hr style="clear: both"/>-->
-    <div class="panel-body">
-      <table class="table table-responsive">
-        <thead>
-        <tr>
-          <td ng-click="sortBy = 'name';reverse=!reverse" style="cursor: pointer;"><b>Name</b> <span
-            class="caret red"></span></td>
-          <td ng-click="sortBy = 'city';reverse=!reverse" style="cursor: pointer;"><b>City</b> <span
-            class="caret red"></span></td>
-          <td ng-click="sortBy = 'orderTotal';reverse=!reverse" style="cursor: pointer;"><b>Order Total</b> <span
-            class="caret red"></span>
-          </td>
-          <td ng-click="sortBy = 'joined';reverse=!reverse" style="cursor: pointer;"><b>Joined</b> <span
-            class="caret red"></span></td>
-          <td><b>Action</b></td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
-          <td ng-bind="cust.name"></td>
-          <td ng-bind="cust.city"></td>
-          <td ng-bind="cust.orderTotal | currency "></td>
-          <td ng-bind="cust.joined"></td>
-          <td><a href="#/orders/{{ cust.id }}" class="btn btn-info">Add</a></td>
 
-        </tr>
-        </tbody>
-      </table>
+      <!--<hr style="clear: both"/>-->
+      <div class="panel-body">
+        <table class="table table-responsive">
+          <thead>
+          <tr>
+            <td ng-click="sortBy = 'name';reverse=!reverse" style="cursor: pointer;"><b>Name</b> <span
+              class="caret red"></span></td>
+            <td ng-click="sortBy = 'city';reverse=!reverse" style="cursor: pointer;"><b>City</b> <span
+              class="caret red"></span></td>
+            <td ng-click="sortBy = 'orderTotal';reverse=!reverse" style="cursor: pointer;"><b>Order Total</b> <span
+              class="caret red"></span>
+            </td>
+            <td ng-click="sortBy = 'joined';reverse=!reverse" style="cursor: pointer;"><b>Joined</b> <span
+              class="caret red"></span></td>
+            <td><b>Action</b></td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
+            <td ng-bind="cust.name"></td>
+            <td ng-bind="cust.city"></td>
+            <td ng-bind="cust.orderTotal | currency "></td>
+            <td ng-bind="cust.joined"></td>
+            <td><a href="#/orders/{{ cust.id }}" class="btn btn-info">Add</a></td>
 
-      <p><span>Total Customers: <span class="badge">{{ customers.length }}</span></span></p>
+          </tr>
+          </tbody>
+        </table>
+
+        <p><span>Total Customers: <span class="badge">{{ customers.length }}</span></span></p>
+      </div>
     </div>
   </div>
-  <div ng-controller="firstCtrl">
-   <div class="panel panel-success">
+</div>
+<div ng-controller="firstCtrl">
+  <div class="panel panel-success">
     <div class="panel panel-heading">
       <span class="glyphicon glyphicon-globe"></span> Portfolio Overview <span class="pull-right">{{ message }}</span>
-    <!--<p>Emit Message: {{message}}</p>-->
+      <!--<p>Emit Message: {{message}}</p>-->
     </div>
-     <div class="panel panel-body">
-    <div ng-controller="secondCtrl" style="border: 2px solid #428bca;padding: 5px;">
-      <h4>Add Source</h4>
-      <input type="text" ng-model="msg" />
-      <!--<input ng-model="msg">-->
-      <button class="btn" ng-click="handleClick(msg);">Click</button>
-    </div>
+    <div class="panel panel-body">
+      <div ng-controller="secondCtrl" style="border: 2px solid #428bca;padding: 5px;">
+        <h4>Add Source</h4>
+        <input type="text" ng-model="msg"/>
+        <!--<input ng-model="msg">-->
+        <button class="btn" ng-click="handleClick(msg);">Click</button>
+      </div>
 
-  </div>
-   </div>
-  </div>
-
-  <div ng-controller="companiesCtrl">
-    <div class="panel-body">
-      <table class="table table-bordered">
-        <thead>
-        <tr>
-          <td ng-click="sortBy = 'name';reverse=!reverse" style="cursor: pointer;"><b>Label</b> <span
-            class="caret red"></span></td>
-          <td ng-click="sortBy = 'city';reverse=!reverse" style="cursor: pointer;"><b>Name</b> <span
-            class="caret red"></span></td>
-          <td ng-click="sortBy = 'orderTotal';reverse=!reverse" style="cursor: pointer;"><b>Symbol</b> <span
-            class="caret red"></span>
-          </td>
-          <td ng-click="sortBy = 'joined';reverse=!reverse" style="cursor: pointer;"><b>sector</b> <span
-            class="caret red"></span></td>
-
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="company in companies | filter:customerFilter | orderBy:sortBy:reverse">
-          <td ng-bind="company.label"></td>
-          <td ng-bind="company.name"></td>
-          <td ng-bind="company.symbol"></td>
-          <td ng-bind="company.sector"></td>
-          <!-- <td><a href="#/orders/{{ cust.id }}" class="btn btn-info">Add</a></td>-->
-
-        </tr>
-        </tbody>
-      </table>
-
-      <p><span>Total Customers: <span class="badge">{{ companies.length }}</span></span></p>
     </div>
   </div>
+</div>
 
-    <!--<div ng-controller="companiesCtrl">
-      <ul>
-        <h2>Names and Age</h2>
-        <li ng-repeat="company in companies">
-          {{company.label + ' : ' + company.name + company.symbol + ' : ' + company.sector}}
-        </li>
-      </ul>
-    </div>-->
+<div ng-controller="companiesCtrl">
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <td ng-click="sortBy = 'name';reverse=!reverse" style="cursor: pointer;"><b>Label</b> <span
+          class="caret"></span></td>
+        <td ng-click="sortBy = 'city';reverse=!reverse" style="cursor: pointer;"><b>Name</b> <span
+          class="caret"></span></td>
+        <td ng-click="sortBy = 'orderTotal';reverse=!reverse" style="cursor: pointer;"><b>Symbol</b> <span
+          class="caret"></span>
+        </td>
+        <td ng-click="sortBy = 'joined';reverse=!reverse" style="cursor: pointer;"><b>Sector</b> <span
+          class="caret"></span></td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="company in companies | filter:customerFilter | orderBy:sortBy:reverse">
+        <td ng-bind="company.label"></td>
+        <td ng-bind="company.name"></td>
+        <td ng-bind="company.symbol"></td>
+        <td ng-bind="company.sector"></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p><span>Total Customers: <span class="badge">{{ companies.length }}</span></span></p>
+  </div>
+</div>
 
 
-  <!--
-      <div>
-      <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
-      <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.fint.js?cacheBust=56"></script>
-      <script type="text/javascript">
-        FusionCharts.ready(function(){
-          var fusioncharts = new FusionCharts({
-              type: 'column2d',
-              renderAt: 'chart-container',
-              width: '400',
-              height: '300',
-              dataFormat: 'json',
-              dataSource: {
-                "chart": {
-                  "caption": "Sales Figures for Top Three Juice Flavors",
-                  "subCaption": "2014",
-                  "xAxisName": "Flavor",
-                  "yAxisName": "Amount",
-                  "numberPrefix": "$",
-                  "theme": "fint"
-                },
+<!--<div ng-controller="companiesCtrl">
+  <ul>
+    <h2>Names and Age</h2>
+    <li ng-repeat="company in companies">
+      {{company.label + ' : ' + company.name + company.symbol + ' : ' + company.sector}}
+    </li>
+  </ul>
+</div>-->
 
-                "data": [{
-                  "label": "Apple",
-                  "value": "810000",
-                  "link": "j-showAlert-Apple,$810K"
-                }, {
-                  "label": "Cranberry",
-                  "value": "620000",
-                  "link": "j-showAlert-Cranberry,$620K"
-                }, {
+
+<!--
+    <div>
+    <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+    <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.fint.js?cacheBust=56"></script>
+    <script type="text/javascript">
+      FusionCharts.ready(function(){
+        var fusioncharts = new FusionCharts({
+            type: 'column2d',
+            renderAt: 'chart-container',
+            width: '400',
+            height: '300',
+            dataFormat: 'json',
+            dataSource: {
+              "chart": {
+                "caption": "Sales Figures for Top Three Juice Flavors",
+                "subCaption": "2014",
+                "xAxisName": "Flavor",
+                "yAxisName": "Amount",
+                "numberPrefix": "$",
+                "theme": "fint"
+              },
+
+              "data": [{
+                "label": "Apple",
+                "value": "810000",
+                "link": "j-showAlert-Apple,$810K"
+              }, {
+                "label": "Cranberry",
+                "value": "620000",
+                "link": "j-showAlert-Cranberry,$620K"
+              }, {
+                "label": "Grapes",
+                "value": "350000",
+                "link": "j-showAlert-Grapes,$350K"
+              },
+                {
                   "label": "Grapes",
                   "value": "350000",
                   "link": "j-showAlert-Grapes,$350K"
                 },
-                  {
-                    "label": "Grapes",
-                    "value": "350000",
-                    "link": "j-showAlert-Grapes,$350K"
-                  },
-                  {
-                    "label": "Grapes",
-                    "value": "350000",
-                    "link": "j-showAlert-Grapes,$350K"
-                  }
-                ]
-              },
+                {
+                  "label": "Grapes",
+                  "value": "350000",
+                  "link": "j-showAlert-Grapes,$350K"
+                }
+              ]
+            },
 
-            }
-          );
-          fusioncharts.render();
-        });
-      </script>
-        <style>
+          }
+        );
+        fusioncharts.render();
+      });
+    </script>
+      <style>
 
-          h1, h2, h3, h4, h5 {
-            margin: 0;
-            padding: 0;
-            font-weight: bold;
-          }
-          .chartCont {
-            padding: 0px 12px;
-          }
-          .border-bottom {
-            border-bottom: 1px dashed rgba(0, 117, 194, 0.2);
-          }
-          .border-right {
-            border-right: 1px dashed rgba(0, 117, 194, 0.2);
-          }
-          #container {
-            width: 1200px;
-            margin: 0 auto;
-            position: relative;
-          }
-          #container> div {
-            width: 100%;
-            background-color: #ffffff;
-          }
-          #logoContainer {
-            float: left;
-          }
-          #logoContainer img {
-            padding: 0 10px;
-          }
-          #logoContainer div {
-            position: absolute;
-            top: 8px;
-            left: 95px;
-          }
-          #logoContainer div h2 {
-            color: #0075c2;
-          }
-          #logoContainer div h4 {
-            color: #0e948c;
-          }
-          #logoContainer div p {
-            color: #719146;
-            font-size: 12px;
-            padding: 5px 0;
-          }
+        h1, h2, h3, h4, h5 {
+          margin: 0;
+          padding: 0;
+          font-weight: bold;
+        }
+        .chartCont {
+          padding: 0px 12px;
+        }
+        .border-bottom {
+          border-bottom: 1px dashed rgba(0, 117, 194, 0.2);
+        }
+        .border-right {
+          border-right: 1px dashed rgba(0, 117, 194, 0.2);
+        }
+        #container {
+          width: 1200px;
+          margin: 0 auto;
+          position: relative;
+        }
+        #container> div {
+          width: 100%;
+          background-color: #ffffff;
+        }
+        #logoContainer {
+          float: left;
+        }
+        #logoContainer img {
+          padding: 0 10px;
+        }
+        #logoContainer div {
+          position: absolute;
+          top: 8px;
+          left: 95px;
+        }
+        #logoContainer div h2 {
+          color: #0075c2;
+        }
+        #logoContainer div h4 {
+          color: #0e948c;
+        }
+        #logoContainer div p {
+          color: #719146;
+          font-size: 12px;
+          padding: 5px 0;
+        }
 
-          #userDetail {
-            float: right;
-          }
-          #userDetail img {
-            position: absolute;
-            top: 16px;
-            right: 130px;
-          }
-          #userDetail div {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #0075c2;
-          }
-          #userDetail div p {
-            margin: 0;
-          }
-          #userDetail div p:nth-child(2) {
-            color: #0e948c;
-          }
-          #header div:nth-child(3) {
-            clear: both;
-            border-bottom: 1px solid #0075c2;
-          }
-          #content div {
-            display: inline-block;
-          }
-          #content > div {
-            margin: 0px 20px;
-          }
-          #content > div:nth-child(1) > div {
-            margin: 20px 0 0;
-          }
-          #content > div:nth-child(2) > div {
-            margin: 0 0 20px;
-          }
-          #footer p {
-            margin: 0;
-            font-size: 9pt;
-            color: black;
-            padding: 5px 0;
-            text-align: center;
-          }
-        </style>
+        #userDetail {
+          float: right;
+        }
+        #userDetail img {
+          position: absolute;
+          top: 16px;
+          right: 130px;
+        }
+        #userDetail div {
+          position: absolute;
+          top: 15px;
+          right: 20px;
+          font-size: 14px;
+          font-weight: bold;
+          color: #0075c2;
+        }
+        #userDetail div p {
+          margin: 0;
+        }
+        #userDetail div p:nth-child(2) {
+          color: #0e948c;
+        }
+        #header div:nth-child(3) {
+          clear: both;
+          border-bottom: 1px solid #0075c2;
+        }
+        #content div {
+          display: inline-block;
+        }
+        #content > div {
+          margin: 0px 20px;
+        }
+        #content > div:nth-child(1) > div {
+          margin: 20px 0 0;
+        }
+        #content > div:nth-child(2) > div {
+          margin: 0 0 20px;
+        }
+        #footer p {
+          margin: 0;
+          font-size: 9pt;
+          color: black;
+          padding: 5px 0;
+          text-align: center;
+        }
+      </style>
 
-    <div id="chart-container"></div>
-      </div>-->
+  <div id="chart-container"></div>
+    </div>-->
 
 
-  <div class="footer">
-    <nav>
-      <ul class="pager">
-        <!--<li class="pull-left"><a ng-href="#/customers">Customers</a></li>-->
-        <li class="next"><a href="#/itemlist">Item List</a></li>
-      </ul>
-    </nav>
-  </div>
+<div class="footer">
+  <nav>
+    <ul class="pager">
+      <!--<li class="pull-left"><a ng-href="#/customers">Customers</a></li>-->
+      <li class="next"><a href="#/itemlist">Item List</a></li>
+    </ul>
+  </nav>
+</div>
 
 </div>
 
