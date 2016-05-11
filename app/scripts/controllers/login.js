@@ -19,14 +19,14 @@ angular.module('customerAppApp')
         /*window.location.hash = '#/customers';*/
         $location.path('/customers');
       }
-      else {
-        alert("Wrong stuff");
+      else  {
+  alert("Wrong stuff")
       }
     };
   })
-.controller('companiesCtrl',function ($scope,$http) {
+/*.controller('companiesCtrl',function ($scope,$http) {
   $http.get(companies.json)
   .success(function(response){
   $scope.person = response.records;
   })
-})
+})*/

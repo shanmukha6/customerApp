@@ -1,7 +1,44 @@
 <div ng-controller="MainCtrl as ctrl">
-  <div class="header">
+  <nav class="navbar navbar-inverse" role="navigation" ng-cloak>
+    <div class="container">
+      <div class="navbar-header">
+
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="/">Customers Application</a>
+      </div>
+
+      <!--<div class="collapse navbar-collapse" id="main-nav">
+
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-class="{active: activeView === 'dashboard'}">
+            <a href="/">Dashboard</a>
+          </li>
+          <li ng-class="{active: activeView === 'watchlist'}" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+              Watchlists
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li ng-if="!watchlists.length" class="dropdown-header">
+                No lists found
+              </li>
+              <li ng-repeat="list in watchlists track by $index">
+                <a href="/#/watchlist/{{list.id}}">{{list.name}}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>-->
+    </div>
+  </nav>
+  <!--<div class="header">
     <h3 class="text-muted">Customers Application </h3>
-  </div>
+  </div>-->
   <div class="panel">
     <div class="panel-heading"><h1>Customers<a href="" ng-model="collapsed" ng-click="collapsed=!collapsed"
                                                class="pull-right">
@@ -13,7 +50,7 @@
        <span class="pull-right">
             <div class="form-group has-feedback">
                 <label class="control-label">Enter Name</label>
-                <input type="text" ng-model="customerFilter.$" class="form-control" placeholder="Search"/>
+                <input type="text" ng-model="customerFilter.name" class="form-control" placeholder="Search"/>
                 <i class="form-control-feedback glyphicon glyphicon-search"></i>
             </div>
         </span>
@@ -38,7 +75,7 @@
           </thead>
           <tbody>
           <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
-            <td ng-bind="cust.name"></td>
+            <td ng-bind="cust.name" href="#/orders/{{ cust.id }}"></td>
             <td ng-bind="cust.city"></td>
             <td ng-bind="cust.orderTotal | currency "></td>
             <td ng-bind="cust.joined"></td>
@@ -72,23 +109,24 @@
 </div>
 
 <div ng-controller="companiesCtrl">
-  <div class="panel-body">
+  <div class="panel">
+    <div class="panel panel-body">
     <table class="table table-striped">
       <thead>
       <tr>
-        <td ng-click="sortBy = 'name';reverse=!reverse" style="cursor: pointer;"><b>Label</b> <span
+        <td ng-click="sortBy = 'label';reverse=!reverse" style="cursor: pointer;"><b>Label</b> <span
           class="caret"></span></td>
-        <td ng-click="sortBy = 'city';reverse=!reverse" style="cursor: pointer;"><b>Name</b> <span
+        <td ng-click="sortBy = 'name';reverse=!reverse" style="cursor: pointer;"><b>Name</b> <span
           class="caret"></span></td>
-        <td ng-click="sortBy = 'orderTotal';reverse=!reverse" style="cursor: pointer;"><b>Symbol</b> <span
+        <td ng-click="sortBy = 'symbol';reverse=!reverse" style="cursor: pointer;"><b>Symbol</b> <span
           class="caret"></span>
         </td>
-        <td ng-click="sortBy = 'joined';reverse=!reverse" style="cursor: pointer;"><b>Sector</b> <span
+        <td ng-click="sortBy = 'sector';reverse=!reverse" style="cursor: pointer;"><b>Sector</b> <span
           class="caret"></span></td>
       </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="company in companies | filter:customerFilter | orderBy:sortBy:reverse">
+      <tr ng-repeat="company in companies | orderBy:sortBy:reverse">
         <td ng-bind="company.label"></td>
         <td ng-bind="company.name"></td>
         <td ng-bind="company.symbol"></td>
@@ -96,9 +134,10 @@
       </tr>
       </tbody>
     </table>
-
+<br/>
     <p><span>Total Customers: <span class="badge">{{ companies.length }}</span></span></p>
   </div>
+    </div>
 </div>
 
 

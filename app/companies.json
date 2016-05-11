@@ -44,13 +44,7 @@
       "sector": "n/a",
       "industry": "n/a"
     },
-    {
-      "label": "MS - Morgan Stanley",
-      "name": "Morgan Stanley",
-      "symbol": "MS",
-      "sector": "Finance",
-      "industry": "Investment Bankers/Brokers/Service"
-    },
+
     {
       "label": "MS^A - Morgan Stanley",
       "name": "Morgan Stanley",

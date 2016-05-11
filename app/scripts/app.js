@@ -26,7 +26,7 @@ angular
       })
       .when('/customers', {
         resolve: {
-          "check": function ($location, $rootScope) {
+          'check': function ($location, $rootScope) {
             if (!$rootScope.loggedIn) {
               $location.path('/');
             }
@@ -41,7 +41,7 @@ angular
       })
       .when('/itemlist', {
         resolve: {
-          "check": function ($location, $rootScope) {
+          'check': function ($location, $rootScope) {
             if (!$rootScope.loggedIn) {
               $location.path('/');
             }
