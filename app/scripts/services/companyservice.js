@@ -8,10 +8,10 @@
  * Service in the customerAppApp.
  */
 angular.module('customerAppApp')
-  .service('CompanyService', function CompanyService(CompanyService, $resource) {
+  .service('CompanyService', function CompanyService() {
     // AngularJS will instantiate a singleton by calling "new" on this function
-    $scope.companies = CompanyService.query();
-    return $resource('companies.json');
+    /* $scope.companies = CompanyService.query();
+     return $resource('companies.json');*/
   })
   .controller('companiesCtrl', function ($scope, $http) {
     $http.get('companies.json')
@@ -19,4 +19,5 @@ angular.module('customerAppApp')
         $scope.companies = response.records;
       })
   });
+
 
