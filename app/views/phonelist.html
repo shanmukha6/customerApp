@@ -1,0 +1,27 @@
+<div class="container-fluid" style="background-color: white; padding: 20px">
+  <div ng-controller="PhoneListCtrl">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group-lg">
+        <label>Search:</label><input ng-model="query"><hr/>
+        <label>Sort By:</label><select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="age">Newest</option>
+      </select>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <ul class="phones">
+          <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+            <a href="#/phones/{{phone.id}}" class="thumb">
+              <img style="float:left; padding: 10px" ng-src="{{phone.imageUrl}}"class="img"  width="72" height="60"alt="{{phone.name}}">
+            </a>
+            <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+            <p>{{phone.snippet}}</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>

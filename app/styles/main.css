@@ -1,8 +1,23 @@
 /* Space out content a bit */
 body {
+  margin: 0px;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #ddd;
+  background-color: #f2f2f2;
+}
+/*
+img {
+  width: 10%;
+  height: 5%;
+  float: left;
+  padding: 10px;
+  position: relative;
+}
+*/
+.phones{
+  font-size: larger;
+  font-stretch: semi-condensed;
+  font-size-adjust: inherit;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -55,7 +70,7 @@ thead{
   }
 }
 .container-narrow > hr {
-  margin: 30px 0;
+  margin: 10px 0;
 }
 
 /* Main marketing message and sign up button */

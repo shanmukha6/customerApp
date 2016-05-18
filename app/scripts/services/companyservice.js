@@ -18,6 +18,7 @@ angular.module('customerAppApp')
       .success(function (response) {
         $scope.companies = response.records;
       })
-  });
+  })
+
 
 
