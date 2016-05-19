@@ -14,7 +14,7 @@
         <ul class="phones">
           <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
             <a href="#/phones/{{phone.id}}" class="thumb">
-              <img style="float:left; padding: 10px" ng-src="{{phone.imageUrl}}"class="img"  width="72" height="60"alt="{{phone.name}}">
+              <img ng-src="{{phone.imageUrl}}"class="img"alt="{{phone.name}}">
             </a>
             <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
             <p>{{phone.snippet}}</p>
@@ -23,5 +23,14 @@
       </div>
 
     </div>
+  </div>
+
+  <div class="footer">
+    <nav>
+      <ul class="pager">
+        <li class="pull-left"><a ng-href='#/phones/:phoneId'>Phone-detail</a></li>
+        <!--<li class="next"><a href="#/itemlist">Item List</a></li>-->
+      </ul>
+    </nav>
   </div>
 </div>

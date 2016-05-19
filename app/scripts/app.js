@@ -10,6 +10,8 @@
  */
 angular
   .module('customerAppApp', [
+    'phonecatControllers',
+    'phonecatFilters',
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -20,11 +22,11 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+     /* .when('/', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
-      })
-      .when('/customers', {
+      })*/
+      .when('/', {
        /* resolve: {
           'check': function ($location, $rootScope) {
             if (!$rootScope.loggedIn) {
@@ -50,10 +52,14 @@ angular
         templateUrl: 'views/itemlist.html',
         controller: 'mainCtrl'
       })
-      .when('/phonelist',{
+      .when('/phones',{
       templateUrl: 'views/phonelist.html',
         controller:'PhoneListCtrl'
     })
+      .when('/phones/:phoneId',{
+        templateUrl: 'views/phone-detail.html',
+        controller:'PhoneDetailCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

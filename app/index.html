@@ -24,7 +24,27 @@
 
 <!-- Add your site or application content here -->
 <div class="container-fluid">
+  <nav class="navbar navbar-inverse">
+    <!--<div class="navbar-header">
 
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>-->
+    <div class="">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Customers Application</a>
+      </div>
+      <ul class="nav navbar-nav pull-right">
+        <li class=""><a href="#/customers">Customers</a></li>
+        <li><a href="#/itemlist">Item List</a></li>
+        <li><a href="#/phones">Phones List</a></li>
+        <!--<li><a href="#">Page 3</a></li>-->
+      </ul>
+      </div>
+  <!--  </div>-->
+  </nav>
 
   <!--<ul class="nav nav-pills pull-right">
             <li class="active"><a ng-href="#/">Home</a></li>
@@ -98,6 +118,8 @@
 <script src="scripts/controllers/login.js"></script>
 <script src="scripts/services/companyservice.js"></script>
 <script src="scripts/controllers/phoneList.js"></script>
+<script src="scripts/controllers/phoneDetail.js"></script>
+<script src="scripts/filters/filters.js"></script>
 <!-- endbuild -->
 </body>
 </html>

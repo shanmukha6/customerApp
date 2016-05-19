@@ -1,10 +1,11 @@
 /* Space out content a bit */
 body {
   margin: 0px;
-  padding-top: 20px;
+  padding-top: 15px;
   padding-bottom: 20px;
   background-color: #f2f2f2;
 }
+
 /*
 img {
   width: 10%;
@@ -14,10 +15,71 @@ img {
   position: relative;
 }
 */
-.phones{
-  font-size: larger;
-  font-stretch: semi-condensed;
-  font-size-adjust: inherit;
+.phones {
+  list-style: none;
+}
+
+.thumb {
+  float: left;
+  margin: -0.5em 1em 1.5em 0;
+  padding-bottom: 1em;
+  height: 100px;
+  width: 100px;
+
+}
+
+.phones li {
+  /*clear:both;*/
+  height: 150px;
+  padding-top: 15px;
+}
+
+img.phone {
+  float: left;
+  border: 1px solid black;
+  margin-right: 3em;
+  margin-bottom: 2em;
+  background-color: white;
+  padding: 2em;
+  height:400px;
+  width:400px;
+}
+ul.phone-thumbs{
+  margin: 0;
+  list-style: none;
+}
+ul.phone-thumbs li{
+  border: 1px solid black;
+  display: inline-block;
+  margin:10px;
+  background-color: white;
+}
+ul.phone-thumbs img{
+  height:100px;
+  width: 100px;
+  padding:1em;
+}
+ul.specs{
+  clear: both;
+  margin: 0;
+  padding:0;
+  list-style-type: none;
+}
+ul.specs > li{
+  display: inline-block;
+  width:200px;
+  vertical-align: top;
+}
+ul.specs > li > span{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+ul.specs dt{
+  font-weight: bold;
+}
+h1{
+  border-bottom: 1px solid gray;
+  padding: 2px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -32,19 +94,25 @@ img {
 .header {
   border-bottom: 1px solid #e5e5e5;
 }
-.caret{border-top:4px solid #2685ee;}
+
+.caret {
+  border-top: 4px solid #2685ee;
+}
+
 .table-responsive tbody tr:hover td, .table-responsive tbody tr:hover th {
   background-color: #ddd;
 }
+
 /*#caret {
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-top: 8px solid green;
 }*/
-thead{
+thead {
   font-size: larger;
   color: #2685ee;
 }
+
 /*h3 {
   text-align: center;
 }*/
@@ -69,6 +137,7 @@ thead{
     max-width: 730px;
   }
 }
+
 .container-narrow > hr {
   margin: 10px 0;
 }
@@ -81,15 +150,17 @@ thead{
   padding: 14px 24px;
   background-color: white;
 }
+
 /*.jumbotron  {
   font-size: 21px;
   padding: 14px 24px;
 }*/
- .panel-heading {
+.panel-heading {
   color: #333;
   background-color: #f5f5f5;
   border-color: #ddd;
 }
+
 .btn {
   /*display: inline-block;*/
   margin-bottom: 0;
@@ -116,6 +187,7 @@ thead{
 .marketing {
   margin: 40px 0;
 }
+
 .marketing p + h4 {
   margin-top: 28px;
 }
@@ -129,10 +201,12 @@ thead{
     padding-left: 0;
     padding-right: 0;
   }
+
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
   }
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;

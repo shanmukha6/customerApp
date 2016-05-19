@@ -14,7 +14,7 @@ angular.module('customerAppApp')
      return $resource('companies.json');
   })
   .controller('companiesCtrl', function ($scope, $http) {
-    $http.get('companies.json')
+    $http.get('JSON/companies.json')
       .success(function (response) {
         $scope.companies = response.records;
       })
