@@ -1,0 +1,110 @@
+{
+  "records": [
+    {
+      "label": "SPKE - Spark Energy, Inc.",
+      "name": "Spark Energy, Inc.",
+      "symbol": "SPKE",
+      "sector": "Public Utilities",
+      "industry": "Power Generation"
+    },
+    {
+      "label": "MRH - Montpelier Re Holdings Ltd.",
+      "name": "Montpelier Re Holdings Ltd.",
+      "symbol": "MRH",
+      "sector": "Finance",
+      "industry": "Property-Casualty Insurers"
+    },
+    {
+      "label": "MRH^A - Montpelier Re Holdings Ltd.",
+      "name": "Montpelier Re Holdings Ltd.",
+      "symbol": "MRH^A",
+      "sector": "n/a",
+      "industry": "n/a"
+    },
+    {
+      "label": "MCO - Moody&#39;s Corporation",
+      "name": "Moody&#39;s Corporation",
+      "symbol": "MCO",
+      "sector": "Finance",
+      "industry": "Finance: Consumer Services"
+    },
+    {
+      "label": "MOG/A - Moog Inc.",
+      "name": "Moog Inc.",
+      "symbol": "MOG/A",
+      "sector": "Technology",
+      "industry": "Industrial Machinery/Components"
+    },
+    {
+      "label": "MOG/B - Moog Inc.",
+      "name": "Moog Inc.",
+      "symbol": "MOG/B",
+      "sector": "n/a",
+      "industry": "n/a"
+    },
+    {
+      "label": "MS^A - Morgan Stanley",
+      "name": "Morgan Stanley",
+      "symbol": "MS^A",
+      "sector": "n/a",
+      "industry": "n/a"
+    },
+    {
+      "label": "MRH - Montpelier Re Holdings Ltd.",
+      "name": "Montpelier Re Holdings Ltd.",
+      "symbol": "MRH",
+      "sector": "Finance",
+      "industry": "Property-Casualty Insurers"
+    },
+    {
+      "label": "TLR - Timberline Resources Corporation",
+      "name": "Timberline Resources Corporation",
+      "symbol": "TLR",
+      "sector": "Basic Industries",
+      "industry": "Precious Metals"
+    },
+    {
+      "label": "TGD - Timmons Gold Corp",
+      "name": "Timmons Gold Corp",
+      "symbol": "TGD",
+      "sector": "Basic Industries",
+      "industry": "Precious Metals"
+    },
+    {
+      "label": "TOF - Tofutti Brands Inc.",
+      "name": "Tofutti Brands Inc.",
+      "symbol": "TOF",
+      "sector": "Consumer Non-Durables",
+      "industry": "Specialty Foods"
+    },
+    {
+      "label": "TMP - Tompkins Financial Corporation",
+      "name": "Tompkins Financial Corporation",
+      "symbol": "TMP",
+      "sector": "Finance",
+      "industry": "Major Banks"
+    },
+    {
+      "label": "TAT - Transatlantic Petroleum Ltd",
+      "name": "Transatlantic Petroleum Ltd",
+      "symbol": "TAT",
+      "sector": "Energy",
+      "industry": "Oil & Gas Production"
+    },
+    {
+      "label": "URG - Ur Energy Inc",
+      "name": "Ur Energy Inc",
+      "symbol": "URG",
+      "sector": "Basic Industries",
+      "industry": "Precious Metals"
+    },
+    {
+      "label": "URZ - Uranerz Energy Corporation",
+      "name": "Uranerz Energy Corporation",
+      "symbol": "URZ",
+      "sector": "Basic Industries",
+      "industry": "Precious Metals"
+    }
+  ]
+}
+
