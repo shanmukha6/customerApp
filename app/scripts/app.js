@@ -12,6 +12,7 @@ angular
   .module('customerAppApp', [
     'phonecatControllers',
     'phonecatFilters',
+    /*'phonecatService',*/
     'ngAnimate',
     'ngCookies',
     'ngResource',

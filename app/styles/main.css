@@ -33,6 +33,38 @@ img {
   height: 150px;
   padding-top: 15px;
 }
+/* img.phone {
+  max-width: 100%;
+  -moz-transition: all 1.1s;
+  -webkit-transition: all 1.1s;
+  transition: all 1.1s;
+}
+ img.phone:hover  {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}*/
+
+
+img.phone  {
+  -webkit-transition: all 1s ease; /* Safari and Chrome */
+  -moz-transition: all 1s ease; /* Firefox */
+  -o-transition: all 1s ease; /* IE 9 */
+  -ms-transition: all 1s ease; /* Opera */
+  transition: all 1s ease;
+  max-width: 100%;
+}
+ img.phone :hover {
+  -webkit-transform:scale(1.25); /* Safari and Chrome */
+  -moz-transform:scale(1.25); /* Firefox */
+  -ms-transform:scale(1.25); /* IE 9 */
+  -o-transform:scale(1.25); /* Opera */
+  transform:scale(1.1);
+}
+ /*just apply some height and width to the wrapper.*/
+
+
+
 
 img.phone {
   float: left;
