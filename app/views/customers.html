@@ -1,64 +1,4 @@
-<!--
-  <nav class="navbar navbar-inverse" role="navigation" ng-cloak>
-
-    <div class="navbar-header">
-
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-      <a class="navbar-brand" href="/">Customers Application</a>
-      <ul class="nav nav-pills pull-right">
-        <li class="navbar-brand"><a ng-href="#/">Home</a></li>
-        <li class="navbar-brand"><a ng-href="#/itemlist">About</a></li>
-        <li class="navbar-brand"><a ng-href="#">Contact</a></li>
-      </ul>
-    </div>-->
-
- <!--   <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Customers Application</a>
-        </div>
-        <ul class="nav navbar-nav pull-right">
-          <li class="active"><a href="#/customers">Customers</a></li>
-          <li><a href="#/itemlist">Item List</a></li>
-          <li><a href="#/phones">Phones List</a></li>
-          &lt;!&ndash;<li><a href="#">Page 3</a></li>&ndash;&gt;
-        </ul>
-      </div>
-    </nav>-->
-
-    <!--<div class="collapse navbar-collapse" id="main-nav">
-
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-class="{active: activeView === 'dashboard'}">
-          <a href="/">Dashboard</a>
-        </li>
-        <li ng-class="{active: activeView === 'watchlist'}" class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown">
-            Watchlists
-            <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li ng-if="!watchlists.length" class="dropdown-header">
-              No lists found
-            </li>
-            <li ng-repeat="list in watchlists track by $index">
-              <a href="/#/watchlist/{{list.id}}">{{list.name}}</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>-->
-
-  </nav>
-  <!--<div class="header">
-    <h3 class="text-muted">Customers Application </h3>
-  </div>-->
-  <div ng-controller="MainCtrl as ctrl">
+ <div ng-controller="MainCtrl as ctrl">
   <div class="">
     <div class="panel">
       <div class="panel-heading"><h1>Customers<a href="" ng-model="collapsed" ng-click="collapsed=!collapsed"
@@ -108,6 +48,12 @@
 
           <p><span>Total Customers: <span class="badge">{{ customers.length }}</span></span></p>
         </div>
+      </div>
+    </div>
+    <div ng-controller="StockCtrl as  stockCtrl">
+      <h3>LIst of Stocks</h3>
+      <div ng-repeat="stock in stockCtrl.stocks">
+        <div ng-include="stockCtrl.stockTemplate"></div>
       </div>
     </div>
 

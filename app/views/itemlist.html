@@ -64,6 +64,12 @@
       </div>
     </div>
   </div>
+  <hr/>
+  <div ng-controller="StockCtrl as  stockCtrl">
+    <h3>List of Stocks</h3>
+    <div ng-include="stockCtrl.stockTemplate"></div>
+  </div>
+
   <!--  <div><a href="#/" class="btn btn-info">Add</a> </div>-->
   <nav>
     <ul class="pager">

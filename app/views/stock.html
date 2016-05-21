@@ -1,0 +1,33 @@
+<!--<div class="">
+  Name: <span class="stock-name"
+              ng-bind="stock.name">
+</span>
+  Price:
+  <span class="stock-price"
+        ng-bind="stock.price | currency">
+  </span>
+  Percentage Change:
+  <span class="stock-change"
+        ng-bind="stockCtrl.getChange(stock) + '%'">
+  </span>
+</div>-->
+<div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td>Name</td>
+      <td>Present Price</td>
+      <td>Previous Price</td>
+      <td>Percentage (%)</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="stock in stockCtrl.stocks">
+      <td ng-bind="stock.name"></td>
+      <td ng-bind="stock.price | currency"></td>
+      <td ng-bind="stock.previous | currency"></td>
+      <td ng-bind="stockCtrl.getChange(stock) + '%'"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

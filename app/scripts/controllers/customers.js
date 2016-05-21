@@ -148,6 +148,38 @@
         $scope.$emit('eventName', {message: msg});
       };
     })
+  .controller('StockCtrl',function () {
+    var self = this;
+    self.stocks=[
+      {
+        name:'First Stock',
+        price:120,
+        previous:100
+      },
+      {
+        name:'Second Stock',
+        previous:140,
+        price:220
+      },
+      {
+        name:'Third Stock',
+        previous:110,
+        price:110
+      },
+      {
+        name:'First Stock',
+        previous:400,
+        price:420
+      }
+    ];
+    self.stockTemplate = 'views/stock.html';
+    self.getChange = function(stock){
+      return Math.ceil((
+          (stock.price - stock.previous)/ stock.previous
+        ) * 100);
+    };
+  });
+
 
 })();
 
