@@ -1,17 +1,20 @@
-<!--<div class="">
+<div
+     class="stock-dash">
   Name: <span class="stock-name"
-              ng-bind="stock.name">
+              ng-bind="stockData.name">
 </span>
   Price:
   <span class="stock-price"
-        ng-bind="stock.price | currency">
+        ng-bind="stockData.price | currency">
   </span>
   Percentage Change:
   <span class="stock-change"
-        ng-bind="stockCtrl.getChange(stock) + '%'">
+        ng-bind="getChange(stockData) + '%'">
   </span>
-</div>-->
-<div>
+  <button ng-click="onSelect()">Select me</button>
+</div>
+<!--
+<div ng-controller="StockCtrl as  stockCtrl">
   <table class="table table-striped">
     <thead>
     <tr>
@@ -19,15 +22,20 @@
       <td>Present Price</td>
       <td>Previous Price</td>
       <td>Percentage (%)</td>
+      <td>&nbsp;</td>
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="stock in stockCtrl.stocks">
-      <td ng-bind="stock.name"></td>
-      <td ng-bind="stock.price | currency"></td>
-      <td ng-bind="stock.previous | currency"></td>
-      <td ng-bind="stockCtrl.getChange(stock) + '%'"></td>
+    <tr ng-repeat="s in stockCtrl.stocks">
+      <td class="stock-name" ng-bind="stockData.name"></td>
+      <td class="stock-price" ng-bind="stockData.price | currency"></td>
+      <td class="stock-previous" ng-bind="stockData.previous | currency"></td>
+      <td class="stock-change" ng-bind="getChange(stockData) + '%'"></td>
+      <td>
+        <button ng-click="onSelect()">Select me</button>
+      </td>
     </tr>
     </tbody>
   </table>
 </div>
+-->

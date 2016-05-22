@@ -172,12 +172,29 @@
         price:420
       }
     ];
-    self.stockTemplate = 'views/stock.html';
+    /*self.stockTemplate = 'views/stock.html';
     self.getChange = function(stock){
       return Math.ceil((
           (stock.price - stock.previous)/ stock.previous
         ) * 100);
+    };*/
+    self.onStockSelect = function (price,name) {
+      console.log('Selected Price',price,'Name',name);
+      alert('Name: '+ name + ' and Price is ' + price );
     };
+
+    /*self.changeAllStocks = function () {
+      for(var i = 0; i<4; i++){
+        self.stocks[i] = {
+          name: 'Controller Stock',
+          price: 2500,
+          previous: 200
+        };
+      }
+      self.changeFirstStock = function () {
+        self.stocks[0].name = 'Changed First Stock';
+      };
+    }*/
   });
 
 

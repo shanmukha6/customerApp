@@ -65,10 +65,26 @@
     </div>
   </div>
   <hr/>
+  <!-- List of Stocks-->
   <div ng-controller="StockCtrl as  stockCtrl">
     <h3>List of Stocks</h3>
-    <div ng-include="stockCtrl.stockTemplate"></div>
-  </div>
+    <!--<div ng-include="stockCtrl.stockTemplate"></div>-->
+    <div ng-repeat="s in stockCtrl.stocks">
+    <div stock-widget
+         stock-data="s"
+         stock-title="Stock {{$index}}. {{s.name}}"
+         when-select="stockCtrl.onStockSelect(stockPrice,stockName)">
+    </div>
+    </div>
+    <!--<stock-widget></stock-widget>-->
+<!--    <button class="btn btn-primary" ng-click="stockCtrl.changeAllStocks()">
+      Change All Stock Form List
+    </button>
+    <button class="btn btn-success" ng-click="stockCtrl.changeFirstStock()">
+      Change First Stock From Controller
+    </button>
+  </div>-->
+  <!-- List of Stocks- End-->
 
   <!--  <div><a href="#/" class="btn btn-info">Add</a> </div>-->
   <nav>
