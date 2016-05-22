@@ -1,121 +1,129 @@
-
 <!--TBD: detail view for <span>{{ phoneId}}</span>-->
 <!--<div class="mg-image"><img ng-src="{{mainImageUrl}}" class="phone"></div>-->
-<img ng-src="{{mainImageUrl}}" class="phone">
-  <h1>{{phone.name}}</h1>
-<p>{{phone.description}}</p>
-<ul class="phone-thumbs">
-  <li ng-repeat="img in phone.images">
-    <img ng-src="{{img}}" ng-click="setImage(img)">
-  </li>
+<div class="row">
+  <div class="col-md-4">
+    <img ng-src="{{mainImageUrl}}" class="phone">
+  </div>
+  <div class="col-md-8">
+    <h1>{{phone.name}}</h1>
+    <p>{{phone.description}}</p>
+    <ul class="phone-thumbs">
+      <li ng-repeat="img in phone.images">
+        <img ng-src="{{img}}" ng-click="setImage(img)">
+      </li>
+    </ul>
+  </div>
+</div>
 
-</ul>
-<ul class="specs">
 
-  <li>
-    <span>Availability and Networks</span>
-    <dl>
-      <dt>Availability</dt>
-      <dd ng-repeat="availability in phone.availability">{{availability}}</dd>
-    </dl>
-  </li>
-  <li>
-    <dl>
-    <dt>Additional Features</dt>
-    <dd>{{phone.additionalFeatures}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Battery</span>
-    <dl>
-      <dt>Type</dt>
-      <dd>{{phone.battery.type}}</dd>
-      <dt>Talk Time</dt>
-      <dd>{{phone.battery.talkTime}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Storage and Memory</span>
-  <dl>
-    <dt>RAM</dt>
-    <dd>{{phone.storage.ram}}</dd>
-    <dt>Internal Storage</dt>
-    <dd>{{phone.storage.flash}}</dd>
-  </dl>
-  </li>
+<div class="details">
+  <ul class="specs">
 
-  <li>
-    <span>Display</span>
-    <dl>
-      <dt>ScreenResolution</dt>
-      <dd>{{phone.display.screenResolution}}</dd>
-      <dt>Screen Size</dt>
-      <dd>{{phone.display.screensize}}</dd>
-      <dt>Touch Screen</dt>
-      <dd>{{phone.display.touchScreen | checkmark}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Connectivity</span>
-    <dl>
-      <dt>Network Support</dt>
-      <dd>{{phone.connectivity.cell}}</dd>
-      <dt>Bluetooth</dt>
-      <dd>{{phone.connectivity.bluetooth}}</dd>
-      <dt>Infrared</dt>
-      <dd>{{phone.connectivity.infrared | checkmark}}</dd>
-      <dt>Wi-Fi</dt>
-      <dd>{{phone.connectivity.wifi}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Hardware</span>
-    <dl>
-      <dt>Accelerometer</dt>
-      <dd>{{phone.hardware.accelerometer | checkmark}}</dd>
-      <dt>Audio Jack</dt>
-      <dd>{{phone.hardware.audioJack}}</dd>
-      <dt>CPU</dt>
-      <dd>{{phone.hardware.cpu}}</dd>
-      <dt>fmRadio</dt>
-      <dd>{{phone.hardware.fmRadio | checkmark}}</dd>
-      <dt>Physical Keyboard</dt>
-      <dd>{{phone.hardware.physicalKeyboard | checkmark}}</dd>
-      <dt>USB</dt>
-      <dd>{{phone.hardware.usb}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Android</span>
-    <dl>
-      <dt>OS</dt>
-      <dd>{{phone.android.os}}</dd>
-      <dt>UI</dt>
-      <dd>{{phone.android.ui}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Camera</span>
-  <dl>
-    <dt>Primary</dt>
-    <dd>{{phone.camera.primary}}</dd>
-    <dt>Features</dt>
-    <dd>{{phone.camera.features.join(',')}}</dd>
-  </dl>
-  </li>
-  <li>
-    <span>Size And Weight</span>
-    <dl>
-      <dt>Dimensions</dt>
-      <dd ng-repeat="dim in phone.sizeAndWeight.dimensions">
-        {{dim}}
-      </dd>
-      <dt>Weight</dt>
-      <dd>{{phone.sizeAndWeight.weight}}</dd>
-    </dl>
-  </li>
+    <li>
+      <span>Availability and Networks</span>
+      <dl>
+        <dt>Availability</dt>
+        <dd ng-repeat="availability in phone.availability">{{availability}}</dd>
+      </dl>
+    </li>
+    <li>
+      <dl>
+        <dt>Additional Features</dt>
+        <dd>{{phone.additionalFeatures}}</dd>
+      </dl>
+    </li>
+    <li>
+      <span>Battery</span>
+      <dl>
+        <dt>Type</dt>
+        <dd>{{phone.battery.type}}</dd>
+        <dt>Talk Time</dt>
+        <dd>{{phone.battery.talkTime}}</dd>
+      </dl>
+    </li>
+    <li>
+      <span>Storage and Memory</span>
+      <dl>
+        <dt>RAM</dt>
+        <dd>{{phone.storage.ram}}</dd>
+        <dt>Internal Storage</dt>
+        <dd>{{phone.storage.flash}}</dd>
+      </dl>
+    </li>
 
-</ul>
+    <li>
+      <span>Display</span>
+      <dl>
+        <dt>ScreenResolution</dt>
+        <dd>{{phone.display.screenResolution}}</dd>
+        <dt>Screen Size</dt>
+        <dd>{{phone.display.screensize}}</dd>
+        <dt>Touch Screen</dt>
+        <dd>{{phone.display.touchScreen | checkmark}}</dd>
+      </dl>
+    </li>
+    <li>
+      <span>Connectivity</span>
+      <dl>
+        <dt>Network Support</dt>
+        <dd>{{phone.connectivity.cell}}</dd>
+        <dt>Bluetooth</dt>
+        <dd>{{phone.connectivity.bluetooth}}</dd>
+        <dt>Infrared</dt>
+        <dd>{{phone.connectivity.infrared | checkmark}}</dd>
+        <dt>Wi-Fi</dt>
+        <dd>{{phone.connectivity.wifi}}</dd>
+      </dl>
+    </li>
+    <li>
+      <span>Hardware</span>
+      <dl>
+        <dt>Accelerometer</dt>
+        <dd>{{phone.hardware.accelerometer | checkmark}}</dd>
+        <dt>Audio Jack</dt>
+        <dd>{{phone.hardware.audioJack}}</dd>
+        <dt>CPU</dt>
+        <dd>{{phone.hardware.cpu}}</dd>
+        <dt>fmRadio</dt>
+        <dd>{{phone.hardware.fmRadio | checkmark}}</dd>
+        <dt>Physical Keyboard</dt>
+        <dd>{{phone.hardware.physicalKeyboard | checkmark}}</dd>
+        <dt>USB</dt>
+        <dd>{{phone.hardware.usb}}</dd>
+      </dl>
+    </li>
+    <li>
+      <span>Android</span>
+      <dl>
+        <dt>OS</dt>
+        <dd>{{phone.android.os}}</dd>
+        <dt>UI</dt>
+        <dd>{{phone.android.ui}}</dd>
+      </dl>
+    </li>
+    <li>
+      <span>Camera</span>
+      <dl>
+        <dt>Primary</dt>
+        <dd>{{phone.camera.primary}}</dd>
+        <dt>Features</dt>
+        <dd>{{phone.camera.features.join(',')}}</dd>
+      </dl>
+    </li>
+    <li>
+      <span>Size And Weight</span>
+      <dl>
+        <dt>Dimensions</dt>
+        <dd ng-repeat="dim in phone.sizeAndWeight.dimensions">
+          {{dim}}
+        </dd>
+        <dt>Weight</dt>
+        <dd>{{phone.sizeAndWeight.weight}}</dd>
+      </dl>
+    </li>
+
+  </ul>
+</div>
 
 
 <!--

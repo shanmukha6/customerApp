@@ -68,7 +68,8 @@ img.phone  {
 
 img.phone {
   float: left;
-  border: 1px solid black;
+  border: 1px solid #b3b3b3;
+  margin-left: 10px;
   margin-right: 3em;
   margin-bottom: 2em;
   background-color: white;
@@ -76,15 +77,25 @@ img.phone {
   height:400px;
   width:400px;
 }
+.details{
+  border: 2px solid #b3b3b3;
+  margin:10px;
+  background-color: white;
+  padding: 10px 10px 10px 10px;
+}
+.specs li span{
+  border-bottom: 1px solid gray;
+}
 ul.phone-thumbs{
-  margin: 0;
+  margin: 2px;
   list-style: none;
 }
 ul.phone-thumbs li{
-  border: 1px solid black;
+  border: 1px solid #b3b3b3;
   display: inline-block;
   margin:10px;
   background-color: white;
+
 }
 ul.phone-thumbs img{
   height:100px;
