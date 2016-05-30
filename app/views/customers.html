@@ -1,121 +1,213 @@
- <div ng-controller="MainCtrl as ctrl">
-  <div class="">
-    <div class="panel">
-      <div class="panel-heading"><h1>Customers<a href="" ng-model="collapsed" ng-click="collapsed=!collapsed"
-                                                 class="pull-right">
-        <!--<i class="fa fa-angle-down" style="font-size:35px;color:#2685ee"></i>-->
-        <i class="fa fa-angle-down " style="font-size:35px;color:#2685ee"></i>
-      </a></h1></div>
-      <div ng-show="!collapsed">
+<div class="row">
+  <div class="col-md-6">
+    <!-- <div ng-controller="TableCtrl">
+       <div class="input-group">
+         <input class="form-control" ng-model="searchText" placeholder="Search"
+                type="search" ng-change="search"/>
+       <span class="input-group-addon">
+         <span class="glyphicon glyphicon-search"></span>
+       </span>
+       </div>
+       <table class="table table-hover data-table myTable">
+         <thead>
+         <tr>
+           <th class="EmpId">
+             <a href="#" ng-click="sort('EmpId',$event)">EmpId
+               <span class="{{Header[0]}}"></span>
+             </a>
+           </th>
+           <th class="name">
+             <a href="#" ng-click="sort('name',$event)">Name
+               <span class="{{Header[1]}}"></span>
+             </a>
+           </th>
+           <th class="Email">
+             <a href="#" ng-click="sort('Email',$event)">Email
+               <span class="{{Header[2]}}"></span>
+             </a>
+           </th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr ng-repeat="item in ItemsByPage[currentPage] | orderBy:columnToOrder: reverse">
+           <td>{{item.EmpId}}</td>
+           <td>{{item.name}}</td>
+           <td>{{item.Email}}</td>
+         </tr>
+         </tbody>
+       </table>
+       <ul class="pagination pagination-sm">
+         <li ng-class="{active:0}"><a href="#"ng-click="firstPage()">First</a> </li>
+         <li ng-repeat="n in range(ItemsByPage.length)"><a href="#"ng-click="setPage()" ng-bind="n+1">1</a> </li>
+         <li><a href="#"ng-click="lastPage()">Last</a> </li>
+       </ul>
+     </div>-->
+    <div class="container-fluid">
+      <div class="panel">
+        <div class=" panel panel-heading">
+          <h2>Shopping Card</h2>
+        </div>
+        <div class="panel panel-body">
+          <div ng-controller="CartForm">
+            <form role="form">
+            <div class="form-group">
+              <table class="table table-condensed">
+                <thead>
+                <tr>
+                  <th>Description</th>
+                  <th>Qty</th>
+                  <th>Cost</th>
+                  <th>Total</th>
+                  <th>&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in invoice.items">
+                  <td><input type="text" class="form-control"
+                             ng-model="item.description" class="input-small"></td>
+                  <td><input type="number" class="form-control"
+                             ng-model="item.qty"></td>
+                  <td><input type="number" class="form-control"
+                             ng-model="item.cost"></td>
+                  <td>{{item.qty * item.cost | currency}}</td>
+                  <td>[<a href ng-click="removeItem($index)">X</a>]</td>
+                </tr>
+                <tr>
+                  <td>
+                    <button type="button" class="btn btn-default" ng-click="addItem()" style="background-color: #174E7D; color: white" >Add Item</button>
+                    <!--<a href ng-click="addItem()" class="btn btn-small">add item</a>--></td>
+                  <td>&nbsp;</td>
+                  <td>Total Items: <span class="badge">{{ invoice.items.length }}</span></td>
+                  <td>Total Cost:{{total() | currency }}</td>
+                </tr>
+                </tbody>
+              </table>
+              <!--<p>Total Items: <span class="badge">{{ invoice.items.length }}</span></p>-->
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
 
-       <span class="pull-right">
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div ng-controller="MainCtrl as ctrl">
+      <div class="panel">
+        <div class="panel-heading"><h2>Customers<a href="" ng-model="collapsed" ng-click="collapsed=!collapsed"
+                                                   class="pull-right">
+          <!--<i class="fa fa-angle-down" style="font-size:35px;color:#2685ee"></i>-->
+          <i class="fa fa-angle-down " style="font-size:35px;color:#2685ee"></i>
+        </a></h2></div>
+        <div ng-show="!collapsed">
+            <span class="pull-right">
             <div class="form-group has-feedback">
                 <label class="control-label">Enter Name</label>
                 <input type="text" ng-model="customerFilter.name" class="form-control" placeholder="Search"/>
                 <i class="form-control-feedback glyphicon glyphicon-search"></i>
             </div>
         </span>
-
-
-        <!--<hr style="clear: both"/>-->
-        <div class="panel-body">
-          <table class="table table-responsive">
-            <thead>
-            <tr>
-              <td ng-click="sortBy = 'name';reverse=!reverse" style="cursor: pointer;"><b>Name</b> <span
-                class="caret red"></span></td>
-              <td ng-click="sortBy = 'city';reverse=!reverse" style="cursor: pointer;"><b>City</b> <span
-                class="caret red"></span></td>
-              <td ng-click="sortBy = 'orderTotal';reverse=!reverse" style="cursor: pointer;"><b>Order Total</b> <span
-                class="caret red"></span>
-              </td>
-              <td ng-click="sortBy = 'joined';reverse=!reverse" style="cursor: pointer;"><b>Joined</b> <span
-                class="caret red"></span></td>
-              <td><b>Action</b></td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
-              <td ng-bind="cust.name" href="#/orders/{{ cust.id }}"></td>
-              <td ng-bind="cust.city"></td>
-              <td ng-bind="cust.orderTotal | currency "></td>
-              <td ng-bind="cust.joined"></td>
-              <td><a href="#/orders/{{ cust.id }}" class="btn btn-info">Add</a></td>
-
-            </tr>
-            </tbody>
-          </table>
-
-          <p><span>Total Customers: <span class="badge">{{ customers.length }}</span></span></p>
-        </div>
-      </div>
-    </div>
-    <!--<div ng-controller="StockCtrl as  stockCtrl">
-      <h3>LIst of Stocks</h3>
-      <div ng-repeat="stock in stockCtrl.stocks">
-        <div ng-include="stockCtrl.stockTemplate"></div>
-      </div>
-    </div>-->
-
-    <div ng-controller="firstCtrl">
-      <div class="panel panel-success">
-        <div class="panel panel-heading">
-          <span class="glyphicon glyphicon-globe"></span> Portfolio Overview <span
-          class="pull-right">{{ message }}</span>
-          <!--<p>Emit Message: {{message}}</p>-->
-        </div>
-        <div class="panel panel-body">
-          <div ng-controller="secondCtrl" style="border: 2px solid #428bca;padding: 5px;">
-            <h4>Add Source</h4>
-            <input type="text" ng-model="msg"/>
-            <!--<input ng-model="msg">-->
-            <button class="btn" ng-click="handleClick(msg);">Click</button>
+          <!--<hr style="clear: both"/>-->
+          <div class="panel-body">
+            <table class="table table-responsive">
+              <thead>
+              <tr>
+                <td ng-click="sortBy = 'name';reverse=!reverse" style="cursor: pointer;"><b>Name</b> <span
+                  class="caret red"></span></td>
+                <td ng-click="sortBy = 'city';reverse=!reverse" style="cursor: pointer;"><b>City</b> <span
+                  class="caret red"></span></td>
+                <td ng-click="sortBy = 'orderTotal';reverse=!reverse" style="cursor: pointer;"><b>Order Total</b> <span
+                  class="caret red"></span>
+                </td>
+                <td ng-click="sortBy = 'joined';reverse=!reverse" style="cursor: pointer;"><b>Joined</b> <span
+                  class="caret red"></span></td>
+                <td><b>Action</b></td>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
+                <td ng-bind="cust.name" href="#/orders/{{ cust.id }}"></td>
+                <td ng-bind="cust.city"></td>
+                <td ng-bind="cust.orderTotal | currency "></td>
+                <td ng-bind="cust.joined"></td>
+                <td><a href="#/orders/{{ cust.id }}" class="btn btn-info">Add</a></td>
+              </tr>
+              </tbody>
+            </table>
+            <p>Total Customers: <span class="badge">{{ customers.length }}</span></p>
           </div>
-
         </div>
       </div>
-    </div>
-
-    <div ng-controller="companiesCtrl">
-      <div class="panel">
-        <div class="panel panel-body">
-          <table class="table table-striped">
-            <thead>
-            <tr>
-              <td ng-click="sortBy = 'label';reverse=!reverse" style="cursor: pointer;"><b>Label</b> <span
-                class="caret"></span></td>
-              <td ng-click="sortBy = 'name';reverse=!reverse" style="cursor: pointer;"><b>Name</b> <span
-                class="caret"></span></td>
-              <td ng-click="sortBy = 'symbol';reverse=!reverse" style="cursor: pointer;"><b>Symbol</b> <span
-                class="caret"></span>
-              </td>
-              <td ng-click="sortBy = 'sector';reverse=!reverse" style="cursor: pointer;"><b>Sector</b> <span
-                class="caret"></span></td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="company in companies | orderBy:sortBy:reverse">
-              <td ng-bind="company.label"></td>
-              <td ng-bind="company.name"></td>
-              <td ng-bind="company.symbol"></td>
-              <td ng-bind="company.sector"></td>
-            </tr>
-            </tbody>
-          </table>
-          <br/>
-          <p><span>Total Customers: <span class="badge">{{ companies.length }}</span></span></p>
-        </div>
-      </div>
-    </div>
-    <div class="footer">
-      <nav>
-        <ul class="pager">
-          <li class="pull-left"><a ng-href="#/phones">Phone List</a></li>
-          <li class="next"><a href="#/itemlist">Item List</a></li>
-        </ul>
-      </nav>
     </div>
   </div>
+</div>
+
+
+<!--<div ng-controller="StockCtrl as  stockCtrl">
+  <h3>LIst of Stocks</h3>
+  <div ng-repeat="stock in stockCtrl.stocks">
+    <div ng-include="stockCtrl.stockTemplate"></div>
+  </div>
+</div>-->
+
+<div ng-controller="firstCtrl">
+  <div class="panel panel-success">
+    <div class="panel panel-heading">
+      <span class="glyphicon glyphicon-globe"></span> Portfolio Overview <span
+      class="pull-right">{{ message }}</span>
+      <!--<p>Emit Message: {{message}}</p>-->
+    </div>
+    <div class="panel panel-body">
+      <div ng-controller="secondCtrl" style="border: 2px solid #428bca;padding: 5px;">
+        <h4>Add Source</h4>
+        <input type="text" ng-model="msg"/>
+        <!--<input ng-model="msg">-->
+        <button class="btn" ng-click="handleClick(msg);">Click</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div ng-controller="companiesCtrl">
+  <div class="panel">
+    <div class="panel panel-body">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <td ng-click="sortBy = 'label';reverse=!reverse" style="cursor: pointer;"><b>Label</b> <span
+            class="caret"></span></td>
+          <td ng-click="sortBy = 'name';reverse=!reverse" style="cursor: pointer;"><b>Name</b> <span
+            class="caret"></span></td>
+          <td ng-click="sortBy = 'symbol';reverse=!reverse" style="cursor: pointer;"><b>Symbol</b> <span
+            class="caret"></span>
+          </td>
+          <td ng-click="sortBy = 'sector';reverse=!reverse" style="cursor: pointer;"><b>Sector</b> <span
+            class="caret"></span></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="company in companies | orderBy:sortBy:reverse">
+          <td ng-bind="company.label"></td>
+          <td ng-bind="company.name"></td>
+          <td ng-bind="company.symbol"></td>
+          <td ng-bind="company.sector"></td>
+        </tr>
+        </tbody>
+      </table>
+      <br/>
+      <p><span>Total Customers: <span class="badge">{{ companies.length }}</span></span></p>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <nav>
+    <ul class="pager">
+      <li class="pull-left"><a ng-href="#/phones">Phone List</a></li>
+      <li class="next"><a href="#/itemlist">Item List</a></li>
+    </ul>
+  </nav>
 </div>
 
 
@@ -127,8 +219,6 @@
     </li>
   </ul>
 </div>-->
-
-
 <!--
     <div>
     <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
@@ -279,8 +369,6 @@
 
   <div id="chart-container"></div>
     </div>-->
-
-
 <!--<div ng-controller="mainCtrl as mainCtrl">
   <div class="btn btn-success" ng-click="mainCtrl.open('first')">First Tab</button></div>
   <div class="btn btn-success pull-right"  ng-click="mainCtrl.open('second')">Second Tab</button></div>
@@ -343,3 +431,7 @@
     </div>
   </div>
 </div>-->
+
+
+
+

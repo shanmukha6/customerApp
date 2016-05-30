@@ -128,77 +128,144 @@
         ]
       }
     ];
-     $scope.doSort = function(propName){
-     $scope.sortBy = propName;
-     $scope.reverse = !$scope.reverse;
-     };
+    $scope.doSort = function (propName) {
+      $scope.sortBy = propName;
+      $scope.reverse = !$scope.reverse;
+    };
   };
-
   //MainCtrl.$inject = ['$scope'];
-
   angular.module('customerAppApp').controller('MainCtrl', MainCtrl)
-    .controller("firstCtrl", function ($scope) {
-      $scope.$on('eventName', function (event, args) {
-        $scope.message = args.message;
-        console.log($scope.message);
-      });
-    })
-    .controller('secondCtrl', function ($scope) {
-      $scope.handleClick = function (msg) {
-        $scope.$emit('eventName', {message: msg});
-      };
-    })
-  .controller('StockCtrl',function () {
+})();
+
+angular.module('customerAppApp')
+  .controller("firstCtrl", function ($scope) {
+    $scope.$on('eventName', function (event, args) {
+      $scope.message = args.message;
+      console.log($scope.message);
+    });
+  })
+  .controller('secondCtrl', function ($scope) {
+    $scope.handleClick = function (msg) {
+      $scope.$emit('eventName', {message: msg});
+    };
+  })
+  .controller('StockCtrl', function () {
     var self = this;
-    self.stocks=[
+    self.stocks = [
       {
-        name:'First Stock',
-        price:120,
-        previous:100
+        name: 'First Stock',
+        price: 120,
+        previous: 100
       },
       {
-        name:'Second Stock',
-        previous:140,
-        price:220
+        name: 'Second Stock',
+        previous: 140,
+        price: 220
       },
       {
-        name:'Third Stock',
-        previous:110,
-        price:110
+        name: 'Third Stock',
+        previous: 110,
+        price: 110
       },
       {
-        name:'First Stock',
-        previous:400,
-        price:420
+        name: 'First Stock',
+        previous: 400,
+        price: 420
       }
     ];
     /*self.stockTemplate = 'views/stock.html';
-    self.getChange = function(stock){
-      return Math.ceil((
-          (stock.price - stock.previous)/ stock.previous
-        ) * 100);
-    };*/
-    self.onStockSelect = function (price,name) {
-      console.log('Selected Price',price,'Name',name);
-      alert('Name: '+ name + ' and Price is ' + price );
+     self.getChange = function(stock){
+     return Math.ceil((
+     (stock.price - stock.previous)/ stock.previous
+     ) * 100);
+     };*/
+    self.onStockSelect = function (price, name) {
+      console.log('Selected Price', price, 'Name', name);
+      alert('Name: ' + name + ' and Price is ' + price);
     };
 
     /*self.changeAllStocks = function () {
-      for(var i = 0; i<4; i++){
-        self.stocks[i] = {
-          name: 'Controller Stock',
-          price: 2500,
-          previous: 200
-        };
+     for(var i = 0; i<4; i++){
+     self.stocks[i] = {
+     name: 'Controller Stock',
+     price: 2500,
+     previous: 200
+     };
+     }
+     self.changeFirstStock = function () {
+     self.stocks[0].name = 'Changed First Stock';
+     };
+     }*/
+  })
+.controller('CartForm',function ($scope) {
+    $scope.invoice = {
+      items: [{
+        qty: 10,
+        description: 'item',
+        cost: 9.95
       }
-      self.changeFirstStock = function () {
-        self.stocks[0].name = 'Changed First Stock';
+      ]
+    };
+    $scope.addItem = function () {
+      $scope.invoice.items.push({
+        qty: 1,
+        description: '',
+        cost: 0
+
+      });
+    };
+    $scope.removeItem = function (index) {
+      $scope.invoice.items.splice(index, 1);
+    };
+    $scope.total = function () {
+      var total = 0;
+      angular.forEach($scope.invoice.items, function (item) {
+        total += item.qty * item.cost;
+      });
+      return total;
+    };
+
+  }
+);
+
+
+/*
+/!*(function CartForm($scope){*!/
+(function () {
+  var CartForm = function ($scope) {
+    $scope.invoice = {
+      items: [{
+        qty: 10,
+        description: 'item',
+        cost: 9.95
+      }
+      ]
+    };
+    $scope.addItem = function () {
+      $scope.invoice.items.push({
+        qty: 1,
+        description: '',
+        cost: 0
+
+      });
+    };
+      $scope.removeItem = function (index) {
+        $scope.invoice.items.splice(index, 1);
       };
-    }*/
-  });
-
-
+      $scope.total = function () {
+        var total = 0;
+        angular.forEach($scope.invoice.items, function (item) {
+          total += item.qty * item.cost;
+        });
+        return total;
+      };
+    angular.module('customerAppApp').controller('CartForm', CartForm)
+  }
 })();
+*/
+
+
+
 
 
 

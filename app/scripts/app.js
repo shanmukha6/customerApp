@@ -36,7 +36,7 @@ angular
           }
         },*/
         templateUrl: 'views/customers.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
       })
       .when('/orders/:customerId', {
         templateUrl: 'views/orders.html',
