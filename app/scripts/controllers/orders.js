@@ -156,6 +156,7 @@
 
   angular.module('customerAppApp')
     .controller('AboutCtrl', AboutCtrl);
+  
 })();
 
 

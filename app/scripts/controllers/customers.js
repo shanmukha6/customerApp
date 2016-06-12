@@ -197,58 +197,23 @@ angular.module('customerAppApp')
      };
      }*/
   })
-.controller('CartForm',function ($scope) {
-    $scope.invoice = {
-      items: [{
-        qty: 10,
-        description: 'item',
-        cost: 9.95
-      }
-      ]
-    };
-    $scope.addItem = function () {
-      $scope.invoice.items.push({
-        qty: 1,
-        description: '',
-        cost: 0
+  .controller('CartForm', function ($scope) {
+      $scope.invoice = {
+        items: [{
+          qty: 10,
+          description: 'item',
+          cost: 9.95
+        }
+        ]
+      };
+      $scope.addItem = function () {
+        $scope.invoice.items.push({
+          qty: 1,
+          description: '',
+          cost: 0
 
-      });
-    };
-    $scope.removeItem = function (index) {
-      $scope.invoice.items.splice(index, 1);
-    };
-    $scope.total = function () {
-      var total = 0;
-      angular.forEach($scope.invoice.items, function (item) {
-        total += item.qty * item.cost;
-      });
-      return total;
-    };
-
-  }
-);
-
-
-/*
-/!*(function CartForm($scope){*!/
-(function () {
-  var CartForm = function ($scope) {
-    $scope.invoice = {
-      items: [{
-        qty: 10,
-        description: 'item',
-        cost: 9.95
-      }
-      ]
-    };
-    $scope.addItem = function () {
-      $scope.invoice.items.push({
-        qty: 1,
-        description: '',
-        cost: 0
-
-      });
-    };
+        });
+      };
       $scope.removeItem = function (index) {
         $scope.invoice.items.splice(index, 1);
       };
@@ -259,10 +224,82 @@ angular.module('customerAppApp')
         });
         return total;
       };
-    angular.module('customerAppApp').controller('CartForm', CartForm)
+
+    } )
+.controller('shopCtrl',function($scope) {
+  $scope.myDate = new Date();
+  $scope.companies=
+    [
+      {
+        name : 'Infosys Technologies',
+        employees : 12500,
+        headoffice : 'Bangalore'
+      },
+      {
+        name : 'Infosys Technologies',
+        employees : 12500,
+        headoffice : 'Bangalore'
+      }
+    ];
+  $scope.addRow = function(){
+    $scope.companies.push(
+      {
+        name : $scope.name,
+        employees: $scope.employees,
+        headoffice: $scope.headoffice
+      }
+    );
+    $scope.name = '',
+      $scope.employees = '',
+      $scope.headoffice = ''
   }
-})();
-*/
+});
+  /*  .controller('shopCtrl',function($scope) {
+      $scope.companies=
+        {
+          name : 'Infosys Technologies',
+          employees : 12500,
+          headoffice : 'Bangalore'
+        }
+
+    })*/
+
+
+
+/*
+ /!*(function CartForm($scope){*!/
+ (function () {
+ var CartForm = function ($scope) {
+ $scope.invoice = {
+ items: [{
+ qty: 10,
+ description: 'item',
+ cost: 9.95
+ }
+ ]
+ };
+ $scope.addItem = function () {
+ $scope.invoice.items.push({
+ qty: 1,
+ description: '',
+ cost: 0
+
+ });
+ };
+ $scope.removeItem = function (index) {
+ $scope.invoice.items.splice(index, 1);
+ };
+ $scope.total = function () {
+ var total = 0;
+ angular.forEach($scope.invoice.items, function (item) {
+ total += item.qty * item.cost;
+ });
+ return total;
+ };
+ angular.module('customerAppApp').controller('CartForm', CartForm)
+ }
+ })();
+ */
 
 
 
