@@ -1,8 +1,9 @@
 <div
      class="stock-dash">
-  Name: <span class="stock-name"
+  <span ng-transclude></span>
+<!--  Name: <span class="stock-name"
               ng-bind="stockData.name">
-</span>
+</span>-->
   Price:
   <span class="stock-price"
         ng-bind="stockData.price | currency">

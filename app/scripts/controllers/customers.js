@@ -151,6 +151,7 @@ angular.module('customerAppApp')
   })
   .controller('StockCtrl', function () {
     var self = this;
+    self.startedTime = new Date().getTime();
     self.stocks = [
       {
         name: 'First Stock',
