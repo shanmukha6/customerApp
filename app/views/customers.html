@@ -20,7 +20,8 @@
         <div class="form-group"  ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
           <label class="col-md-2 control-label">Mobile No</label>
           <div class="col-md-4">
-            <input type="text" class="form-control" name="mobile" ng-model="mobile" placeholder="Phone Number"/>
+            <input type="tel" class="form-control" name="mobile" ng-model="mobile" placeholder="205-566-6842"
+                   pattern='\d{3}[\-]\d{3}[\-]\d{4}' title='Phone Number (Format: 123-456-7890'/>
             <span ng-show="form.mobile.$dirty && form.mobile.$error.required" class="help-block">Enter your Mobile Number</span>
           </div>
         </div>
