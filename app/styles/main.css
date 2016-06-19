@@ -197,6 +197,12 @@ thead {
   padding: 14px 24px;
   background-color: white;
 }
+/*Datepicker*/
+.form-horizontal {
+  width:900px;
+}
+
+
 
 /*.jumbotron  {
   font-size: 21px;

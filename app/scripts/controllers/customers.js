@@ -228,42 +228,41 @@ angular.module('customerAppApp')
 
     } )
 .controller('shopCtrl',function($scope) {
-  $scope.myDate = new Date();
   $scope.companies=
     [
       {
         name : 'Infosys Technologies',
-        employees : 12500,
-        headoffice : 'Bangalore'
+        email : 'Shan.developer2@gmail.com',
+        mobile : 2055666842,
+        theDate: '06/06/2012'
       },
       {
-        name : 'Infosys Technologies',
-        employees : 12500,
-        headoffice : 'Bangalore'
+        name : 'wipro Technologies',
+        email : 'ksc@baanyan.com',
+        mobile : 9854132528,
+        theDate: '10/02/2015'
       }
     ];
+  /*var theDate = new Date();
+  $scope.date = theDate;*/
+
   $scope.addRow = function(){
     $scope.companies.push(
       {
         name : $scope.name,
-        employees: $scope.employees,
-        headoffice: $scope.headoffice
+        email: $scope.email,
+        mobile: $scope.mobile,
+        theDate: $scope.date
       }
     );
     $scope.name = '',
-      $scope.employees = '',
-      $scope.headoffice = ''
+      $scope.email = '',
+      $scope.mobile = '',
+      $scope.thedate = ''
   }
-});
-  /*  .controller('shopCtrl',function($scope) {
-      $scope.companies=
-        {
-          name : 'Infosys Technologies',
-          employees : 12500,
-          headoffice : 'Bangalore'
-        }
 
-    })*/
+});
+
 
 
 

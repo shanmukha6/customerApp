@@ -7,7 +7,7 @@
  * # AboutCtrl
  * Controller of the customerAppApp
  */
-(function() {
+(function () {
   var AboutCtrl = function ($scope, $routeParams) {
     var customerId = $routeParams.customerId;
     $scope.orders = null;
@@ -20,6 +20,7 @@
         }
       }
     }
+
 //console.log(customerId);
     $scope.customers = [
       {
@@ -114,7 +115,7 @@
         city: 'California',
         orderTotal: 44.896,
         joined: '2019-12-10',
-        orders:[
+        orders: [
           {
             id: 4,
             product: 'watch',
@@ -133,7 +134,7 @@
         city: 'Ohio',
         orderTotal: 44.896,
         joined: '2015-02-05',
-        orders:[
+        orders: [
           {
             id: 4,
             product: 'watch',
@@ -156,7 +157,7 @@
 
   angular.module('customerAppApp')
     .controller('AboutCtrl', AboutCtrl);
-  
+
 })();
 
 
