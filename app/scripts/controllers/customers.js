@@ -199,71 +199,69 @@ angular.module('customerAppApp')
      }*/
   })
   .controller('CartForm', function ($scope) {
-      $scope.invoice = {
-        items: [{
-          qty: 10,
-          description: 'item',
-          cost: 9.95
+    $scope.invoice = {
+      items: [{
+        qty: 10,
+        description: 'item',
+        cost: 9.95
+      }
+      ]
+    };
+    $scope.addItem = function () {
+      $scope.invoice.items.push({
+        qty: 1,
+        description: '',
+        cost: 0
+
+      });
+    };
+    $scope.removeItem = function (index) {
+      $scope.invoice.items.splice(index, 1);
+    };
+    $scope.total = function () {
+      var total = 0;
+      angular.forEach($scope.invoice.items, function (item) {
+        total += item.qty * item.cost;
+      });
+      return total;
+    };
+
+  })
+  .controller('shopCtrl', function ($scope) {
+    $scope.companies =
+      [
+        {
+          name: 'Infosys Technologies',
+          email: 'Shan.developer2@gmail.com',
+          mobile: 2055666842,
+          theDate: '06/06/2012'
+        },
+        {
+          name: 'wipro Technologies',
+          email: 'ksc@baanyan.com',
+          mobile: 9854132528,
+          theDate: '10/02/2015'
         }
-        ]
-      };
-      $scope.addItem = function () {
-        $scope.invoice.items.push({
-          qty: 1,
-          description: '',
-          cost: 0
+      ];
+    /*var theDate = new Date();
+     $scope.date = theDate;*/
 
-        });
-      };
-      $scope.removeItem = function (index) {
-        $scope.invoice.items.splice(index, 1);
-      };
-      $scope.total = function () {
-        var total = 0;
-        angular.forEach($scope.invoice.items, function (item) {
-          total += item.qty * item.cost;
-        });
-        return total;
-      };
+    $scope.addRow = function () {
+      $scope.companies.push(
+        {
+          name: $scope.name,
+          email: $scope.email,
+          mobile: $scope.mobile,
+          theDate: $scope.date
+        }
+      );
+        $scope.name = '',
+        $scope.email = '',
+        $scope.mobile = '',
+        $scope.thedate = ''
+    }
 
-    } )
-.controller('shopCtrl',function($scope) {
-  $scope.companies=
-    [
-      {
-        name : 'Infosys Technologies',
-        email : 'Shan.developer2@gmail.com',
-        mobile : 2055666842,
-        theDate: '06/06/2012'
-      },
-      {
-        name : 'wipro Technologies',
-        email : 'ksc@baanyan.com',
-        mobile : 9854132528,
-        theDate: '10/02/2015'
-      }
-    ];
-  /*var theDate = new Date();
-  $scope.date = theDate;*/
-
-  $scope.addRow = function(){
-    $scope.companies.push(
-      {
-        name : $scope.name,
-        email: $scope.email,
-        mobile: $scope.mobile,
-        theDate: $scope.date
-      }
-    );
-    $scope.name = '',
-      $scope.email = '',
-      $scope.mobile = '',
-      $scope.thedate = ''
-  }
-
-});
-
-
+  });
 
 
 /*

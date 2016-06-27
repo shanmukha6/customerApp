@@ -6,18 +6,19 @@
              ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
           <label class="col-md-2 control-label">Name</label>
           <div class="col-md-4">
-            <input type="text" class="form-control" name="name" id="name" ng-model="name" placeholder="Enter name" required/>
+            <input type="text" class="form-control" name="name" id="name" ng-model="name" placeholder="Enter name"
+                   required/>
             <span ng-show="form.name.$dirty && form.name.$error.required" class="help-block">Name is required</span>
           </div>
         </div>
-        <div class="form-group"  ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+        <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
           <label class="col-md-2 control-label">Email</label>
           <div class="col-md-4">
             <input type="email" class="form-control" name="email" ng-model="email" placeholder="Enter your mail Id"/>
             <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Enter your Email</span>
           </div>
         </div>
-        <div class="form-group"  ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+        <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
           <label class="col-md-2 control-label">Mobile No</label>
           <div class="col-md-4">
             <input type="tel" class="form-control" name="mobile" ng-model="mobile" placeholder="205-566-6842"
@@ -26,14 +27,15 @@
           </div>
         </div>
         <!--DatePicker-->
-        <div class="form-group"  ng-class="{ 'has-error': form.date.$dirty && form.date.$error.required }">
+        <div class="form-group" ng-class="{ 'has-error': form.date.$dirty && form.date.$error.required }">
 
           <!-- Basic example -->
           <label class=" col-md-2 control-label"><i class="fa fa-calendar"></i> Date
             <small>(as date)</small>
           </label>
           <div class="col-md-4">
-            <input type="date" autoclose="true" class="form-control" name="date" ng-model="date"  placeholder="Enter Date">
+            <input type="date" autoclose="true" class="form-control" name="date" ng-model="date"
+                   placeholder="Enter Date">
             <span ng-show="form.date.$dirty && form.date.$error.required" class="help-block">Enter your date</span>
           </div>
 
@@ -50,18 +52,24 @@
 
     <div class="col-md-6">
       <table class="table">
+        <thead>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Mobile</th>
-          <th>Joined Date</th>
+          <td ng-click="sortBy = 'name';reverse=!reverse">Name</td>
+          <td ng-click="sortBy = 'email';reverse=!reverse">Email</td>
+          <td ng-click="sortBy = 'mobile';reverse=!reverse">Mobile</td>
+          <td ng-click="sortBy = 'date';reverse=!reverse">Joined Date</td>
         </tr>
-        <tr ng-repeat="company in companies">
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="company in companies | orderBy:sortBy:reverse">
           <td>{{company.name}}</td>
           <td>{{company.email}}</td>
           <td>{{company.mobile}}</td>
           <td>{{company.theDate | date:'MM/dd/yyyy' }}</td>
         </tr>
+        </tbody>
+
       </table>
     </div>
 

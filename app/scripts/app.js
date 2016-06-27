@@ -20,22 +20,22 @@ angular
     'ngSanitize',
     'ngTouch',
     'mgcrea.ngStrap'
-    
+
   ])
   .config(function ($routeProvider) {
     $routeProvider
-     /* .when('/', {
+      .when('/', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
-      })*/
-      .when('/', {
-       /* resolve: {
+      })
+      .when('/customers', {
+        resolve: {
           'check': function ($location, $rootScope) {
             if (!$rootScope.loggedIn) {
               $location.path('/');
             }
           }
-        },*/
+        },
         templateUrl: 'views/customers.html',
         controller: 'MainCtrl',
       })
@@ -44,13 +44,13 @@ angular
         controller: 'AboutCtrl'
       })
       .when('/itemlist', {
-        /*resolve: {
+        resolve: {
           'check': function ($location, $rootScope) {
             if (!$rootScope.loggedIn) {
               $location.path('/');
             }
           }
-        },*/
+        },
         templateUrl: 'views/itemlist.html',
         controller: 'mainCtrl'
       })
